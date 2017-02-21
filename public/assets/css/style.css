@@ -1,8 +1,16 @@
 #siteLogo {
   margin: 0;
   padding: 0;
-  width: 25%;
+  width: 12%;
   height: auto;
+}
+
+#siteNameLogo {
+  font-family: 'Lobster', cursive;
+  font-size: 30px;
+  /*color: #E16f31;*/
+  text-transform: none;
+  padding-top: 0px;
 }
 
 .socialMedia {
