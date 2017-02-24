@@ -14,7 +14,7 @@ CREATE TABLE IF NOT EXISTS teams (
 	id INT(10) UNSIGNED AUTO_INCREMENT NOT NULL
     , team_city VARCHAR(250) NOT NULL
     , team_name VARCHAR(250) NOT NULL
-    , team_abbr VARCHAR(2) NOT NULL
+    , team_abbr VARCHAR(4) NOT NULL
     , PRIMARY KEY (id)
 );
 
@@ -35,7 +35,7 @@ CREATE TABLE IF NOT EXISTS stats (
     , PRIMARY KEY (id)
 );
 
-CREATE INDEX IF stat_name_index ON stats (stat_name);
+-- CREATE INDEX IF stat_name_index ON stats (stat_name);
 
 CREATE TABLE IF NOT EXISTS player_stats (
 	id INT(10) UNSIGNED AUTO_INCREMENT NOT NULL
