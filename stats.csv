@@ -1,0 +1,40 @@
+﻿id,stat_name,stat_abbr,stat_column
+1,Games Played,GP,games_played
+2,Pass Attempts,Pass Att,pass_att
+3,Pass Completions,Pass Comp,pass_comp
+4,Pass Yards,Pass Yds,pass_yd
+5,Pass TD,Pass TD,pass_td
+6,Passing Interceptions,Pass Int,pass_int
+7,Quarterback Rating,QBR,qbr
+8,Rush Attempts,Rush Att,rush_att
+9,Rush Yards,Rush Yds,rush_yds
+10,Rush TD,Rush TD,rush_td
+11,Rush Fumbles,Rush Fum,rush_fum
+12,Targets,Tgt,targ
+13,Receptions,Rec,rec
+14,Receiving Yards,Rec Yds,rec_yds
+15,Receiving TD,Rec TD,rec_td
+16,Solo Tackles,Solo Tkl,tackle_solo
+17,Total Tackles,TOT,tackle_tot
+18,Tackle Assists,Tackle Assists,tackle_ast
+19,Sacks,Sacks,sacks
+20,Sack Yards,Sack Yds,sack_yds
+21,Tackles For Loss,TFL,tackle_for_loss
+22,Interceptions,Int,interceptions
+23,Interception TD,Int TD,int_td
+24,Kick Return TD,KR TD,kick_ret_td
+25,Punt Return TD,PR TD,punt_ret_td
+26,Field Goals Made,FGM,fg_made
+27,Field Goal Attempts,FGA,fg_att
+28,Field Goals Made (1 - 19 yds),FGM (1 - 19 yds),fg_made_1_19
+29,Field Goals Attempts (1 - 19 yds),FGA (1 - 19 yds),fg_att_1_19
+30,Field Goals Made (20 - 29 yds),FGM (20 - 29 yds),fg_made_20_29
+31,Field Goals Attempts (20 - 29 yds),FGA (20 - 29 yds),fg_att_20_29
+32,Field Goals Made (30 - 39 yds),FGM (30 - 39 yds),fg_made_30_39
+33,Field Goals Attempts (30 - 39 yds),FGA (30 - 39 yds),fg_att_30_39
+34,Field Goals Made (40 - 49 yds),FGM (40 - 49 yds),fg_made_40_49
+35,Field Goals Attempts (40 - 49 yds),FGA (40 - 49 yds),fg_att_40_40
+36,Field Goals Made (50 yds Plus),FGM (50 yds Plus),fg_made_50
+37,Field Goals Attempts (50 yds Plus),FGA (50 yds Plus),fg_att_50
+38,Extra Points Made,XPM,xp_made
+39,Extra Point Attempts,XMA,xp_att
