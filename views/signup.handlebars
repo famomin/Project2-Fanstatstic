@@ -1,84 +1,49 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Fanstatstic login!</title>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
-
-    <style>
-        body {background-color:#ec680a;}
-        
-        .signup {float:right;}
-
-        .login {float:left;}
-        
-        #form {height:700px;
-               width:100%;
-               background-color: white;
-               padding:30px;
-               margin:auto;
-               -webkit-border-radius: 20px;
-               -moz-border-radius: 20px;
-               border-radius: 20px;
-               }
-
-        #logo_img {
-            width:30%; height:120px;
-        }
-
-        .logo {
-            margin: 0px auto 20px auto;
-            padding: 15px;
-            text-align: center;
-        }
-
-        .copyright {
-            text-align: center;
-            margin: 0 auto;
-            padding: 10px;
-            color: #999;
-            font-size: 13px;
-        }
-    </style>
-</head>
-<body>
 <div class="container">
     <div class="logo">
-        <a href="index.html">
-            <img id="logo_img" src="images/logo.png">
+        <a href="/">
+            <img id="logo_img" src="assets/img/logo.png">
         </a>
     </div>
+
+    {{#if errors}}
+         {{#each errors}}
+           <div class="alert alert-danger">{{msg}}</div>
+          {{/each}}
+    {{/if}}      
+
+
     <div class="row">
         <div class="col-md-3"></div>
 
-        <div class="col-md-6" id="form">
+        <div class="col-md-6" id="signupform">
             <div >
             <h2>Signup</h2>
             </div>
             <br>
-        <form>
+            
+            <form>
             <div class="form-group"><span class="fa fa-envelope"></span>
             <label for="Email">Email</label>
-            <input type="text" class="form-control" id="Email" placeholder="Email">
+            <input type="text" class="form-control" name="username" placeholder="Email">
+            </div>
+
+            <div class="form-group"><span class="fa fa-lock"></span>
+            <label for="Password">Confirm password</label>
+            <input type="password" class="form-control" name="Password" placeholder="Password">
             </div>
             
             <div class="form-group"><span class="fa fa-lock"></span>
             <label for="Password">Password</label>
-            <input type="password" class="form-control" id="Password" placeholder="Password">
+            <input type="password" class="form-control" name="Password2" placeholder="Password">
             </div>
             
             <div class="form-group">
             <label for="firstname">First Name</label>
-            <input type="text" class="form-control" id="firstname" placeholder="First Name">
+            <input type="text" class="form-control" name="firstname" placeholder="First Name">
             </div>
             <div class="form-group">
             <label for="lastname">Last Name</label>
-            <input type="text" class="form-control" id="lastname" placeholder="Last Name">
+            <input type="text" class="form-control" name="lastname" placeholder="Last Name">
             </div>
             <div class="form-group">
             <label for="Birthdate">Birthdate</label>
@@ -197,7 +162,7 @@
         <a href="/terms-of-use/">Terms of Service</a>
         and <a href="/privacy/">Privacy Policy</a>
         <hr>
-        <button class="login btn btn-warning"><a href="login.html">login</a></button>
+        <button class="login btn btn-warning"><a href="/login">login</a></button>
         <button type="submit" class="signup btn btn-primary">Signup</button>
         </div>
         <div class="col-md-3"></div>
@@ -207,6 +172,3 @@
     <div class="copyright">
         2017 &copy; Fanstatstic, Inc.
     </div>
-
-</body>
-</html>
