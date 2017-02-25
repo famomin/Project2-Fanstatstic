@@ -19,10 +19,10 @@ module.exports = function(sequelize, DataTypes) {
                    type: DataTypes.STRING,
                    validate:{notNull: true, notEmpty: true}
                   },
-        birthdate: {
-                   type: DataTypes.INTEGER,
-                   validate:{notNull: true, notEmpty: true}
-                  },
+        //birthdate: {
+         //          type: DataTypes.INTEGER,
+         //          validate:{notNull: true, notEmpty: true}
+         //        }
                 }, 
                 {
                   classMethods: {

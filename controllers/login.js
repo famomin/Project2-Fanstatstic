@@ -7,10 +7,16 @@ function isAuthenticated(req, res, next) {
 		return next();
 	}
 	res.redirect('/login');
+}
 
 module.exports = function(app, passport){
 	app.get("/", function(req, res) {
     res.sendFile(path.join(__dirname, "../views/index.html"));
+  	});
+
+	//
+  	app.get("/datapage", function(req, res) {
+    res.render("datapage");
   	});
 
 	app.get("/login", function(req, res) {
@@ -37,21 +43,16 @@ module.exports = function(app, passport){
 		res.render('datapage', { user: req.user });
 	});
 
+	//facebook authenticate request
+	app.get('/auth/facebook', passport.authenticate('facebook', {scope: ['email']}));
 
+	app.get('/auth/facebook/callback', 
+	  passport.authenticate('facebook', { successRedirect: '/datapage',
+	                                      failureRedirect: '/login' }));
 
-	app.get('/:username/:password', function(req, res){
-		db.User.create({
-			username: req.params.username,
-		    password: req.params.password
-		}).then(function(data){
-			res.send("successful")
-		});	
-	});
-
+	//logout 
 	app.get('/logout', function(req, res){
 		req.logout();
 		res.redirect('/login');
 	})
 };
-
-	};
