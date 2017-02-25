@@ -6,7 +6,8 @@ function isAuthenticated(req, res, next) {
 	if(req.isAuthenticated()){
 		return next();
 	}
-	res.redirect('/login');
+
+	res.redirect('/')
 }
 
 module.exports = function(app, passport){
@@ -14,27 +15,22 @@ module.exports = function(app, passport){
     res.sendFile(path.join(__dirname, "../views/index.html"));
   	});
 
-	//
-  	app.get("/datapage", function(req, res) {
-    res.render("datapage");
-  	});
-
 	app.get("/login", function(req, res) {
-    res.render("login");
+    	res.render("login");
   	});
 
 	app.post('/login', passport.authenticate('local-login', {
 		successRedirect: '/datapage',
-		failureRedirect: '/signup',
+		failureRedirect: '/login',
 		failureFlash: true
 	}));
 
 	app.get("/signup", function(req, res) {
-    res.render("signup");
+    	res.render("signup");
   	});
 
 	app.post('/signup', passport.authenticate('local-signup', {
-		successRedirect: '/login',
+		successRedirect: '/datapage',
 		failureRedirect: '/signup',
 		failureFlash: true
 	}));
@@ -43,8 +39,9 @@ module.exports = function(app, passport){
 		res.render('datapage', { user: req.user });
 	});
 
+	
 	//facebook authenticate request
-	app.get('/auth/facebook', passport.authenticate('facebook', {scope: ['email']}));
+	app.get('/auth/facebook', passport.authenticate('facebook'));
 
 	app.get('/auth/facebook/callback', 
 	  passport.authenticate('facebook', { successRedirect: '/datapage',
@@ -53,6 +50,7 @@ module.exports = function(app, passport){
 	//logout 
 	app.get('/logout', function(req, res){
 		req.logout();
+		req.session.destroy();
 		res.redirect('/login');
 	})
 };
