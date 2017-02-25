@@ -5,24 +5,24 @@ module.exports = function(sequelize, DataTypes) {
         username: {
                   type: DataTypes.STRING, 
                   unique: true,
-                  validate:{notNull: true, notEmpty: true}
+                  allowNull: true
                   },
         password: {
                    type: DataTypes.STRING,
-                   validate:{notNull: true, notEmpty: true}
+                   allowNull: true
                   },
         firstname: {
                    type: DataTypes.STRING,
-                   validate:{notNull: true, notEmpty: true}
+                   allowNull: true
                   },
         lastname: {
                    type: DataTypes.STRING,
-                   validate:{notNull: true, notEmpty: true}
+                   allowNull: true
                   },
         birthdate: {
                    type: DataTypes.INTEGER,
-                   validate:{notNull: true, notEmpty: true}
-                  },
+                   allowNull: true
+                   }
                 }, 
                 {
                   classMethods: {
@@ -43,15 +43,14 @@ module.exports = function(sequelize, DataTypes) {
                 }
 
               ); 
-    User.hook('beforeCreate', function(user, fn){
+    User.hook('beforeCreate', function(user, cb){
         var salt = bcrypt.genSalt(SALT_WORK_FACTOR, function(err, salt){
-            return salt;
-        });
+            return salt });
         bcrypt.hash(user.password, salt, null, function(err, hash){
             if(err) return next(err);
             user.password = hash;
-            return fn(null, user);
-        })
+            user.save(cb);
+        });
     })
     return User;
 }

@@ -1,4 +1,6 @@
+'use strict'
 var passport = require('passport');
+var bcrypt = require('bcrypt-nodejs')
 var localStrategy = require('passport-local').Strategy;
 var FacebookStrategy = require('passport-facebook').Strategy;
 
@@ -11,46 +13,69 @@ module.exports = function(passport){
 		});
 
 		passport.deserializeUser(function(user, done){
-			db.User.find({where: {id: user.id}}).success(function(user){
+			db.User.find({where: {id: user.id}}).then(function(user){
 				done(null, user);
 			}).error(function(err){
 				done(err, null)
 			});
 		});
-}
 
 // For Authentication Purposes
-passport.use("local-signup", new localStrategy(
-	function(username, password, firstname, lastname, birthdate done){
+passport.use("local-signup", new localStrategy({
+		usernameField: 'username',
+		passwordField: 'password',
+		passReqToCallback: true
+	},
+	function(req, username, password, done){
+		console.log(req.body)
+		process.nextTick(function(){
 		db.User.findOne({
 			where: {username: req.body.username}
-			}).success(function(user){
-			if(errors) { res.render("/signup", {errors: errors})}
+			}).then(function(err, user){
+
+			if(err) return done(err);
 			if(user){
 				  return done(null, false, req.flash('signupMessage', 'That email already taken'));
 			} else {
 			  db.User.create({
-					username: req.body.username;
-					password: bcrypt.hashSync(req.body.password);
-					firstname: req.body.firstname;
-					lastname: req.body.lastname;
-					birthdate: req.body.
-					}).then(function())
+					username: req.body.username,
+					password: bcrypt.hashSync(req.body.password),
+					firstname: req.body.firstname,
+					lastname: req.body.lastname,
+					birthdate: req.body.birthdate
+					}).then(function(err, user){
+						if(err){
+							done(err);
+						}
+						if(user){
+							done(null, user);
+						}
+					});
 				}
-		})
+			})
+		});	
 	}
 ));
 
-passport.use('local-login', new localStrategy(
+passport.use('local-login', new localStrategy({
+		usernameField: 'username',
+		passwordField: 'password',
+		passReqToCallback: true
+	},
 		function(req, email, password, done){
 			process.nextTick(function(){
+				console.log(req.body);
 				db.User.findOne({
-				 where: {username: username}
-				}), success(function(err, user){
-					if(err)
+				 where: {username: req.body.username}
+				}).then(function(err, user){
+					console.log(user)
+					if(err){
 						return done(err);
-					if(!user)
+					}
+					if(!user){
 						return done(null, false, req.flash('loginMessage', 'No User found'));
+					}
+					
 					if(!user.validPassword(password)){
 						return done(null, false, req.flash('loginMessage', 'invalid password'));
 					}
@@ -69,27 +94,18 @@ passport.use('local-login', new localStrategy(
 	  },
 	  function(accessToken, refreshToken, profile, done) {
 	    	process.nextTick(function(){
-	    		db.User.findOne({'facebook.id': profile.id}, function(err, user){
-	    			if(err)
+	    		db.User.findOne({
+	    			where: {'User.id': profile.id}
+	    		}, function(err, user){
+	    			if(err) {
 	    				return done(err);
-	    			if(user)
+	    			}
+	    			if(user){
 	    				return done(null, user);
-	    			else {
-	    				var newUser = new User();
-	    				newUser.facebook.id = profile.id;
-	    				newUser.facebook.token = accessToken;
-	    				newUser.facebook.name = profile.name.givenName + ' ' + profile.name.familyName;
-	    				newUser.facebook.email = profile.emails[0].value;
-
-	    				newUser.save(function(err){
-	    					if(err)
-	    						throw err;
-	    					return done(null, newUser);
-	    				})
-	    				console.log(profile);
 	    			}
 	    		});
 	    	});
 	    }
 
 	));
+};
