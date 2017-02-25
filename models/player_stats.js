@@ -163,6 +163,14 @@ module.exports = function(sequelize, DataTypes) {
             type: DataTypes.INTEGER,
             allowNull: false
         }
+        , fantasy_pts: {
+            type: DataTypes.INTEGER,
+            allowNull: false
+        }
+        , fantasy_pts_per_game: {
+            type: DataTypes.INTEGER,
+            allowNull: false
+        }
     },
     {timestamps: false},
     {

@@ -35,7 +35,7 @@ CREATE TABLE IF NOT EXISTS stats (
     , PRIMARY KEY (id)
 );
 
--- CREATE INDEX IF stat_name_index ON stats (stat_name);
+-- CREATE INDEX stat_name_index ON stats (stat_name);
 
 CREATE TABLE IF NOT EXISTS player_stats (
 	id INT(10) UNSIGNED AUTO_INCREMENT NOT NULL
@@ -79,6 +79,8 @@ CREATE TABLE IF NOT EXISTS player_stats (
     , fg_att_50 INT (10) NOT NULL
     , xp_made INT (10) NOT NULL
     , xp_att INT (10) NOT NULL
+--    , fantasy_pts INT(10) NOT NULL
+--    , fantasy_pts_per_game INT(10) NOT NULL
     , PRIMARY KEY (id)
 );
 
@@ -100,4 +102,4 @@ CREATE TABLE IF NOT EXISTS searches (
 ALTER TABLE player_teams ADD CONSTRAINT `FK_PLAYER_TEAM__PLAYER_ID` FOREIGN KEY (player_id) REFERENCES players(id) ON UPDATE CASCADE ON DELETE RESTRICT;
 ALTER TABLE player_teams ADD CONSTRAINT `FK_PLAYER_TEAM_TEAM_ID` FOREIGN KEY (team_id) REFERENCES teams(id);
 ALTER TABLE player_stats ADD CONSTRAINT `FK_PLAYER_STATS_PLAYER_ID` FOREIGN KEY (player_id) REFERENCES players(id);
--- ALTER TABLE searches ADD CONSTRAINT `FK_SEARCHES_USER_ID` FOREIGN KEY (user_id) REFERENCES users(id);
+ALTER TABLE searches ADD CONSTRAINT `FK_SEARCHES_USER_ID` FOREIGN KEY (user_id) REFERENCES users(id);
