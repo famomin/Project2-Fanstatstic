@@ -93,6 +93,7 @@ passport.use('local-login', new localStrategy({
 	    callbackURL: configAuth.facebookAuth.callbackURL
 	  },
 	  function(accessToken, refreshToken, profile, done) {
+	  	console.log(accessToken, refreshToken, profile, done)
 	    	process.nextTick(function(){
 	    		db.User.findOne({
 	    			where: {'User.id': profile.id}
