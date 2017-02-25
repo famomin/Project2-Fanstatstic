@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/famomin/Project2-Fanstatstic#readme",
   "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.16.1",
     "connect-flash": "^0.1.1",
     "express": "^4.14.1",
