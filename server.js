@@ -1,7 +1,7 @@
 //Dependencies
 //set up express server
 var express = require("express");
-var port = process.env.PORT || 8080;
+var port = process.env.PORT || 3000;
 var app = express();
 
 //set up other npm

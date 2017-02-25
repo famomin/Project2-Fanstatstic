@@ -49,7 +49,7 @@ module.exports = function(sequelize, DataTypes) {
         bcrypt.hash(user.password, salt, null, function(err, hash){
             if(err) return next(err);
             user.password = hash;
-            user.save(cb);
+            user.save(cb); 
         });
     })
     return User;
