@@ -36,9 +36,10 @@ app.set("view engine", "handlebars", "html");
 // Import routes and give the server access to them.
 require("./config/passport")(passport);
 require('./controllers/login.js')(app, passport);
+require('./controllers/model_controller')(app);
 
 //syncing our sequelize models and then starting express app
 db.sequelize.sync().then(function(){
-app.listen(port);
-console.log("running"+port);
+	app.listen(port);
+	console.log("running" + port);
 });
