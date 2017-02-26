@@ -20,13 +20,13 @@ module.exports = function(sequelize, DataTypes) {
                    allowNull: true
                   },
         birthdate: {
-                   type: DataTypes.INTEGER,
+                   type: DataTypes.STRING,
                    allowNull: true
                    }
                 }, 
                 {
                   classMethods: {
-                    validePassword: function(password, passwd, done, user){
+                    validPassword: function(password, passwd, done, user){
                         bcrypt.compare(password, passwd, function(err, isMatch){
                             if (err) throw err;
                             if (isMatch) {
