@@ -1,7 +1,7 @@
- body {background-color:#ec680a;}
-        
+ body {background-image: url("../img/login-background.jpeg");}
+
  button {float:right;}
- 
+
  #loginform {height:500px;
              background-color: white;
              padding:30px;
@@ -32,7 +32,7 @@
 .signup {float:right;}
 
 .login {float:left;}
-        
+
 #signupform {height:800px;
                width:100%;
                background-color: white;
