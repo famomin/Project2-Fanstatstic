@@ -43,14 +43,7 @@ passport.use("local-signup", new localStrategy({
 					firstname: req.body.firstname,
 					lastname: req.body.lastname,
 					birthdate: req.body.birthdate
-					}).then(function(err, user){
-						if(err){
-							done(err);
-						}
-						if(user){
-							done(null, user);
-						}
-					});
+					})
 				}
 			})
 		});	
