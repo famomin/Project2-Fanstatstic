@@ -16,6 +16,8 @@ module.exports = function(app, passport){
   	});
 
 	app.get("/login", function(req, res) {
+			console.log("GET LOGIN");
+			console.log(req.flash());
     	res.render("login");
   	});
 
@@ -26,16 +28,19 @@ module.exports = function(app, passport){
 	}));
 
 	app.get("/signup", function(req, res) {
+			console.log("GET SIGNUP");
+			console.log(req.flash());
     	res.render("signup");
   	});
 
 	app.post('/signup', passport.authenticate('local-signup', {
-		successRedirect: '/datapage',
-		failureRedirect: '/signup',
+		successRedirect: '/login',
+		failureRedirect: '/login',
 		failureFlash: true
 	}));
 
 	app.get('/datapage', isAuthenticated, function(req, res){
+		console.log("GET DATAPAGE");
 		res.render('datapage', { user: req.user });
 	});
 
@@ -45,8 +50,19 @@ module.exports = function(app, passport){
 
 	app.get('/login/facebook/return', 
 	  		passport.authenticate('facebook', 
-	  		  { successRedirect: '/datapage',
-	           	failureRedirect: '/login' }));
+	  		  { failureRedirect: '/login' }), function(req, res){
+	  			res.redirect("/datapage");
+	  		});
+	
+	//google authenticate request
+	app.get('/auth/google', passport.authenticate('google',  {scope: 'https://www.googleapis.com/auth/plus.login'}
+		));
+
+	app.get('/auth/google/callback', 
+	  		passport.authenticate('google', 
+	  		  { failureRedirect: '/login' }), function(req, res){
+	  			res.redirect("/datapage");
+	  		});
 
 	//logout 
 	app.get('/logout', function(req, res){

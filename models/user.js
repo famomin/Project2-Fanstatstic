@@ -26,13 +26,15 @@ module.exports = function(sequelize, DataTypes) {
                 }, 
                 {
                   classMethods: {
-                    validPassword: function(password, passwd, done, user){
-                        bcrypt.compare(password, passwd, function(err, isMatch){
+                    validPassword: function(password, user){
+                        console.log("VALID PASSWORD");
+                        console.log(user);
+                        bcrypt.compare(password, user.password, function(err, isMatch){
                             if (err) throw err;
                             if (isMatch) {
-                                return done(null, user)
+                                return true;
                             } else {
-                                return done(null, false)
+                                return false;
                             }
                         });
                     }
@@ -49,7 +51,7 @@ module.exports = function(sequelize, DataTypes) {
         bcrypt.hash(user.password, salt, null, function(err, hash){
             if(err) return next(err);
             user.password = hash;
-            user.save(cb); 
+            return true; 
         });
     })
     return User;

@@ -1,8 +1,29 @@
-<div class="container">
+<nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">   <!-- navbar container-fluid -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
+                </button>
+                <a class="navbar-brand page-scroll" id="siteNameLogo" href="#page-top"><span><img id="siteLogo" src="assets/img/logo.png"> fanSTATStic</span></a>
+            </div>
 
-	{{#each user}}
-		<div> {{User.id}} </div>
-	{{/each}}
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1"> <!-- navbar-collapse -->
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        {{this.id}}
+                    </li>
+                    <li>
+               			{{this.displayName}}
+                    </li>
+                    <li>
+                       {{this.gender}}
+                    </li>
+                </ul>
+            </div> <!-- closing navbar-collapse -->
+        </div> <!-- closing navbar container-fluid -->
+    </nav> <!-- closing navbar -->
+	
 
 	<div class="jumbotron text-center">
 		<h1><span class="fa fa-lock"></span> Node Authentication</h1>
