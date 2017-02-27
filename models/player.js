@@ -16,7 +16,16 @@ module.exports = function(sequelize, DataTypes) {
         player_position: {
             type: DataTypes.STRING,
         }
-    }, {timestamps: false});
+    }, {timestamps: false},
+    {
+     classMethods: {
+      associate: function(models) {
+        Player.belongsTo(models.Player_stat, {
+          foreignKey: player_id
+        });
+      }
+     } 
+    });
 
     return Player;
 };

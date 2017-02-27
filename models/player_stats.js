@@ -177,9 +177,7 @@ module.exports = function(sequelize, DataTypes) {
      classMethods: {
       associate: function(models) {
         Player_stat.belongsTo(models.Player, {
-          foreignKey: {
-            allowNull: false
-          }
+          foreignKey: player_id
         });
       }
      } 
