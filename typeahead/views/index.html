@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Example of Twitter Typeahead</title>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script  type="text/javascript" src="typeahead.min.js"></script>
+<script  type="text/javascript" src="typeahead.bundle.min.js"></script>
+<!-- <script type="text/javascript">
+$(document).ready(function(){
+    $('input.typeahead').typeahead({
+        name: 'countries',
+        remote: 'http://localhost:3000/search?key=%QUERY',
+        limit: 20
+    });
+});
+</script> -->
+<style type="text/css">
+.bs-example{
+	font-family: sans-serif;
+	position: relative;
+	margin: 50px;
+}
+.typeahead, .tt-query, .tt-hint {
+	border: 2px solid #CCCCCC;
+	border-radius: 8px;
+	font-size: 24px;
+	height: 30px;
+	line-height: 30px;
+	outline: medium none;
+	padding: 8px 12px;
+	width: 396px;
+}
+.typeahead {
+	background-color: #FFFFFF;
+}
+.typeahead:focus {
+	border: 2px solid #0097CF;
+}
+.tt-query {
+	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+}
+.tt-hint {
+	color: #999999;
+}
+.tt-menu {
+	background-color: #FFFFFF;
+	border: 1px solid rgba(0, 0, 0, 0.2);
+	border-radius: 8px;
+	box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+	margin-top: 12px;
+	padding: 8px 0;
+	width: 422px;
+}
+.tt-suggestion {
+	font-size: 24px;
+	line-height: 24px;
+	padding: 3px 20px;
+}
+/*.tt-suggestion.tt-is-under-cursor {*/
+.tt-suggestion:hover {
+	background-color: #0097CF;
+	color: #FFFFFF;
+}
+.tt-suggestion p {
+	margin: 0;
+}
+</style>
+</head>
+<body>
+   <div class="page-header">
+        <h1>Ajax Search Box using Node and MySQL <small>Codeforgeek Tutorial</small></h1>
+    </div>
+    <div class="bs-example" id="player-input-container">
+        <input type="hidden" name="playerID" data-player="" id="playerID" value="" />
+        <input type="text" name="typeahead" class="typeahead tt-query" autocomplete="off" spellcheck="false" placeholder="Type your Query" id="players-typeahead">
+        <button type="button" name="add-player" id="add-player">Add player</button>
+    </div>
+    <div class="player-list" style="border:1px solid #0097CF">
+        <ul>
+        </ul>
+        <button type="button" name="compare-players" id="compare-players">Compare Players</button>
+    </div>
+
+    <script type="text/javascript">
+
+        
+        $(document).ready(function(){
+            var playerBloodhound = new Bloodhound({
+                datumTokenizer: Bloodhound.tokenizers.whitespace,
+                queryTokenizer: Bloodhound.tokenizers.whitespace,
+                prefetch: {url: 'http://localhost:3000/search'},
+                remote: {url: 'http://localhost:3000/search?key=%QUERY', wildcard: '%QUERY'},
+            }); // close player bloodhound
+
+            $('#players-typeahead').typeahead(
+                {minLength:1, highlight: true },
+                {
+                    name: 'players',
+                    display: 'player',
+                    source: playerBloodhound,
+                    limit: 40,
+                    templates: {
+                        notFound: function(data){
+                            return '<div style="color:#FF0000">No matches exist for ' + data.query + '. <br /> Please try a different query.</div>';
+                        },
+                        pending: function(data){
+                            return '<div style="color:#FF0000">Start typing to see choices</div>';
+                        },
+                        footer: function(data){
+                            return '<div style="color:#FF0000">Type to filter or see more choices...</div>';
+                        },
+                        suggestion: function(data){
+                            return '<div>' + data.first_name + ' ' + data.last_name + ' ' + data.team_abbr + ' '  + data.player_position + '</div>';
+                        }
+                    }
+            }); //close typeahead initialization
+
+            $('#players-typeahead').bind('typeahead:select', function(ev, suggestion){
+                // This is where you will do stuff with it after an option has been selected
+                console.log("TRIGGER THE SELECTION EVENT");
+                console.log(suggestion.id);
+                $('#playerID').val(suggestion.id);
+                var displayName = suggestion.first_name + ' ' + suggestion.last_name + ' ' + suggestion.team_abbr + ' ' + suggestion.player_position;
+                $('#playerID').data('player', displayName);
+                $('.typeahead').typeahead('val', displayName);
+            }); //Close typeahead bind on select
+
+            $('#add-player').on('click keypress', function(){
+                console.log($('#playerID').val());
+                if(typeof $('#playerID').val() === undefined || $('#playerID').val() === '' || $('#playerID').val() === 0){
+                    $('#player-typeahead').addClass('danger');
+                    $('.text-danger').remove();
+                    $('#player-input-container').append('<span class="text-danger" id="error">Please select a player from the list</span>');
+                }else{
+                    $('span #error').remove();
+                    $('#player-typeahead').removeClass('danger');
+
+                    $('.text-danger').remove();
+					var li = $('<li>').data('id', $('#playerID').val()).text($('#playerID').data('player'));
+					/*console.log($('#playerID').val());
+					console.log($('#playerID').data('player'));
+					console.log($('.typeahead').typeahead('val'));*/
+                    $('ul').append(li);
+                    $('#playerID').val('');
+                    $('.typeahead').typeahead('val', '');
+                }
+
+            }); // Close add player click keypress event
+
+            $('#compare-players').on('click keypress', function() {
+	            // get all the data of the list elements
+	            var ids = [];
+	            $('ul li').each(function(){
+	            	console.log($(this).data('id'));
+	                ids.push( $(this).data('id') );
+	            });
+	            console.log();
+	            console.log(ids);
+            });
+
+
+    }); //Close document.ready
+    </script>
+</body>
+</html>
