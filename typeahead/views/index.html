@@ -1,90 +1,215 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Example of Twitter Typeahead</title>
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<script  type="text/javascript" src="typeahead.min.js"></script>
-<script  type="text/javascript" src="typeahead.bundle.min.js"></script>
-<!-- <script type="text/javascript">
-$(document).ready(function(){
-    $('input.typeahead').typeahead({
-        name: 'countries',
-        remote: 'http://localhost:3000/search?key=%QUERY',
-        limit: 20
-    });
-});
-</script> -->
-<style type="text/css">
-.bs-example{
-	font-family: sans-serif;
-	position: relative;
-	margin: 50px;
-}
-.typeahead, .tt-query, .tt-hint {
-	border: 2px solid #CCCCCC;
-	border-radius: 8px;
-	font-size: 24px;
-	height: 30px;
-	line-height: 30px;
-	outline: medium none;
-	padding: 8px 12px;
-	width: 396px;
-}
-.typeahead {
-	background-color: #FFFFFF;
-}
-.typeahead:focus {
-	border: 2px solid #0097CF;
-}
-.tt-query {
-	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
-}
-.tt-hint {
-	color: #999999;
-}
-.tt-menu {
-	background-color: #FFFFFF;
-	border: 1px solid rgba(0, 0, 0, 0.2);
-	border-radius: 8px;
-	box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-	margin-top: 12px;
-	padding: 8px 0;
-	width: 422px;
-}
-.tt-suggestion {
-	font-size: 24px;
-	line-height: 24px;
-	padding: 3px 20px;
-}
-/*.tt-suggestion.tt-is-under-cursor {*/
-.tt-suggestion:hover {
-	background-color: #0097CF;
-	color: #FFFFFF;
-}
-.tt-suggestion p {
-	margin: 0;
-}
-</style>
+		<meta charset="UTF-8">
+		<title>Example of Twitter Typeahead</title>
+		<!-- Bootstrap Core CSS -->
+		<link href="../../public/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+		<!-- Custom Fonts -->
+		<link href="../../public/assets/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+		<link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+		<link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+
+
+
+		<!-- Plugin CSS -->
+		<link href="../../public/assets/vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
+
+		<!-- Theme CSS -->
+		<link href="../../public/assets/css/creative.min.css" rel="stylesheet">
+
+		<link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		<script  type="text/javascript" src="typeahead.min.js"></script>
+		<script  type="text/javascript" src="typeahead.bundle.min.js"></script>
+		<!-- <script type="text/javascript">
+		$(document).ready(function(){
+		    $('input.typeahead').typeahead({
+		        name: 'countries',
+		        remote: 'http://localhost:3000/search?key=%QUERY',
+		        limit: 20
+		    });
+		});
+		</script> -->
+		<style type="text/css">
+				.bs-example{
+					font-family: sans-serif;
+					position: relative;
+					margin: 50px;
+				}
+				.typeahead, .tt-query, .tt-hint {
+					border: 2px solid #CCCCCC;
+					border-radius: 8px;
+					font-size: 24px;
+					height: 30px;
+					line-height: 30px;
+					outline: medium none;
+					padding: 8px 12px;
+					width: 396px;
+				}
+				.typeahead {
+					background-color: #FFFFFF;
+				}
+				.typeahead:focus {
+					border: 2px solid #0097CF;
+				}
+				.tt-query {
+					box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+				}
+				.tt-hint {
+					color: #999999;
+				}
+				.tt-menu {
+					background-color: #FFFFFF;
+					border: 1px solid rgba(0, 0, 0, 0.2);
+					border-radius: 8px;
+					box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+					margin-top: 12px;
+					padding: 8px 0;
+					width: 422px;
+				}
+				.tt-suggestion {
+					font-size: 24px;
+					line-height: 24px;
+					padding: 3px 20px;
+				}
+				/*.tt-suggestion.tt-is-under-cursor {*/
+				.tt-suggestion:hover {
+					background-color: #0097CF;
+					color: #FFFFFF;
+				}
+				.tt-suggestion p {
+					margin: 0;
+				}
+
+
+				#siteLogo {
+					margin: 0;
+					padding: 0;
+					width: 12%;
+					height: auto;
+				}
+
+				#siteNameLogo {
+					font-family: 'Lobster', cursive;
+					font-size: 30px;
+					/*color: #E16f31;*/
+					text-transform: none;
+					padding-top: 0px;
+				}
+
+				.socialMedia {
+						width: 40px;
+						height: 40px;
+						margin: 5px;
+				}
+
+				.footerRow {
+					padding-top: 20px;
+					padding-bottom: 20px;
+				}
+		</style>
 </head>
 <body>
-   <div class="page-header">
-        <h1>Ajax Search Box using Node and MySQL <small>Codeforgeek Tutorial</small></h1>
-    </div>
-    <div class="bs-example" id="player-input-container">
-        <input type="hidden" name="playerID" data-player="" id="playerID" value="" />
-        <input type="text" name="typeahead" class="typeahead tt-query" autocomplete="off" spellcheck="false" placeholder="Type your Query" id="players-typeahead">
-        <button type="button" name="add-player" id="add-player">Add player</button>
-    </div>
-    <div class="player-list" style="border:1px solid #0097CF">
-        <ul>
-        </ul>
-        <button type="button" name="compare-players" id="compare-players">Compare Players</button>
-    </div>
+
+		<nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
+				<div class="container-fluid">   <!-- navbar container-fluid -->
+						<!-- Brand and toggle get grouped for better mobile display -->
+						<div class="navbar-header">
+								<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+										<span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
+								</button>
+								<a class="navbar-brand page-scroll" id="siteNameLogo" href="#page-top"><span><img id="siteLogo" src="../../public/assets/img/logo.png"> fanSTATStic</span></a>
+						</div>
+
+						<!-- Collect the nav links, forms, and other content for toggling -->
+						<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1"> <!-- navbar-collapse -->
+								<ul class="nav navbar-nav navbar-right">
+										<li>
+												<a class="page-scroll" href="#about">Back to Home Page</a>
+										</li>
+								</ul>
+						</div> <!-- closing navbar-collapse -->
+				</div> <!-- closing navbar container-fluid -->
+		</nav> <!-- closing navbar -->
+
+		<header>
+				<div class="header-content">
+						<div class="header-content-inner">
+								<h1 id="homeHeading">Dominate Your Fantasy League </h1>
+								<div class="bs-example" id="player-input-container">
+						        <input type="hidden" name="playerID" data-player="" id="playerID" value="" />
+						        <input type="text" name="typeahead" class="typeahead tt-query" autocomplete="off" spellcheck="false" placeholder="Type your Query" id="players-typeahead">
+						        <button type="button" name="add-player" id="add-player">Add player</button>
+						    </div>
+						    <div class="player-list" style="border:1px solid #0097CF">
+						        <ul>
+						        </ul>
+						        <button type="button" name="compare-players" id="compare-players">Compare Players</button>
+						    </div>
+						</div>
+				</div>
+		</header>
+
+		<div class="container-fluid bg-dark footerRow" id="contact"> <!-- footer row -->
+				<div class="row"> <!-- footer row -->
+						<div class="col-sm-12 col-md-3  col-md-offset-1 col-lg-3 col-lg-offset-1"> <!-- footer col 1 -->
+								<h2 class="section-heading text-center">COMPANY</h2>
+								<hr class="primary">
+								<h4 class="text-center"><a href="About.html">ABOUT US</a></h4>
+								<h4 class="text-center"><a href="FAQs.html">FAQs</a></h4>
+								<h4 class="text-center"><a href="intlship.html">TOOLS</a></h4>
+								<h4 class="text-center"><a href="refund.html">REFUND POLICY</a></h4>
+								<h4 class="text-center"><a href="contact.html">TERMS OF SERVICE</a></h4>
+						</div> <!-- closing footer col 1 -->
+
+						<div class="col-sm-12 col-md-3 col-md-offset-1 col-lg-3 col-lg-offset-1"> <!-- footer col 2 -->
+								<div class="row">
+										<h2 class="section-heading text-center">COMMUNITY</h2>
+										<hr class="primary">
+										<h4 class="text-center"><a href="Blog.html">BLOG</a></h4>
+										<h4 class="text-center"><a href="FB.html">FACEBOOK</a></h4>
+										<h4 class="text-center"><a href="TW.html">TWITTER</a></h4>
+										<h4 class="text-center"><a href="YT.html">YOUTUBE</a></h4>
+										<h4 class="text-center"><a href="IG.html">INSTAGRAM</a></h4>
+								</div>
+						</div> <!-- footer close 2-->
+
+						<div class="col-sm-12 col-md-3 col-md-offset-1 col-lg-3 col-lg-offset-1"> <!-- footer col 3 -->
+								<div class="row">
+										<h2 class="section-heading text-center">RESOURCES</h2>
+										<hr class="primary">
+										<h4 class="text-center"><a href="Resources.html">BROCHURE</a></h4>
+										<h4 class="text-center"><a href="Press.html">PRESS</a></h4>
+										<h4 class="text-center"><a href="HistData.html">HISTORICAL DATA</a></h4>
+										<BR>
+										<p class="text-center"><a id="siteNameLogo" href="#page-top"><span><img id="siteLogo" src="../../public//assets/img/logo.png"> fanSTATStic</span></a></p>
+
+
+								</div>
+						</div> <!-- footer close 3-->
+
+				</div> <!-- closing footer row -->
+				<div class="row"> <!-- footer row -->
+
+		<!-- jQuery -->
+		<script src="../../public/assets/vendor/jquery/jquery.min.js"></script>
+
+		<!-- Bootstrap Core JavaScript -->
+		<script src="../../public/assets/vendor/bootstrap/js/bootstrap.min.js"></script>
+
+		<!-- Plugin JavaScript -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+		<script src="../../public/assets/vendor/scrollreveal/scrollreveal.min.js"></script>
+		<script src="../../public/assets/vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
+
+		<!-- Theme JavaScript -->
+		<script src="../../public/assets/js/creative.min.js"></script>
 
     <script type="text/javascript">
 
-        
+
         $(document).ready(function(){
             var playerBloodhound = new Bloodhound({
                 datumTokenizer: Bloodhound.tokenizers.whitespace,
