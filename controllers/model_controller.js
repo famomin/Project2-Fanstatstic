@@ -7,9 +7,9 @@ var test = require('./../models');
         get route for 
 */
 module.exports = function(app) {
-	app.get('/getData', function(req, res) {
+	app.get('/compareplayers', function(req, res) {
         // test.Player_team.findAll({
-        /*test.Player.findAll({
+        test.Player.findAll({
             where: {
                 $or: {
                     first_name: {
@@ -45,30 +45,30 @@ module.exports = function(app) {
             }
             console.log("\n\nPlayer_team");
             console.log(player_team);
-        });*/
-
-         test.Player.findAll({
-            where: {
-                id: 6923
-            },
-            include: [
-                {
-                    model: test.Player_team,
-                    as: 'Player_team',
-                    include: [
-                        {
-                            model: test.Team
-                        }
-                    ]
-                },
-                {
-                    model: test.Player_stat,
-                    as: 'Player_stat'
-                }
-            ]
-        }).then(function(testDB) {
-            console.log(testDB[0].dataValues);
-            // console.log(testDB[0].dataValues.Player_team[0].dataValues);
         });
+
+        //  test.Player.findAll({
+        //     where: {
+        //         id: 6923
+        //     },
+        //     include: [
+        //         {
+        //             model: test.Player_team,
+        //             as: 'Player_team',
+        //             include: [
+        //                 {
+        //                     model: test.Team
+        //                 }
+        //             ]
+        //         },
+        //         {
+        //             model: test.Player_stat,
+        //             as: 'Player_stat'
+        //         }
+        //     ]
+        // }).then(function(testDB) {
+        //     console.log(testDB[0].dataValues);
+        //     // console.log(testDB[0].dataValues.Player_team[0].dataValues);
+        // });
 	});
 };

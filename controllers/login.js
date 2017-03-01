@@ -21,8 +21,9 @@ module.exports = function(app, passport){
     	res.render("login");
   	});
 
+
 	app.post('/login', passport.authenticate('local-login', {
-		successRedirect: '/datapage',
+		successRedirect: '/compareplayers',
 		failureRedirect: '/login',
 		failureFlash: true
 	}));
@@ -39,9 +40,9 @@ module.exports = function(app, passport){
 		failureFlash: true
 	}));
 
-	app.get('/datapage', isAuthenticated, function(req, res){
+	app.get('/compareplayers', isAuthenticated, function(req, res){
 		console.log("GET DATAPAGE");
-		res.render('datapage', { user: req.user });
+		res.render('compareplayers', { user: req.user });
 	});
 
 	
@@ -51,7 +52,7 @@ module.exports = function(app, passport){
 	app.get('/login/facebook/return', 
 	  		passport.authenticate('facebook', 
 	  		  { failureRedirect: '/login' }), function(req, res){
-	  			res.redirect("/datapage");
+	  			res.sendFile(path.join(__dirname, "../views/compareplayers.html"));
 	  		});
 	
 	//google authenticate request
@@ -61,7 +62,7 @@ module.exports = function(app, passport){
 	app.get('/auth/google/callback', 
 	  		passport.authenticate('google', 
 	  		  { failureRedirect: '/login' }), function(req, res){
-	  			res.redirect("/datapage");
+	  			res.sendFile(path.join(__dirname, "../views/compareplayers.html"));
 	  		});
 
 	//logout 

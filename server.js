@@ -14,12 +14,13 @@ var flash = require('connect-flash');
 var db = require ('./models');
 var path = require('path');
 
-SALT_WORK_FACTOR = 12;
+SALT_WORK_FACTOR = 10;
 
 //middleware used for development
 // Serve static content for the app from the "views" directory in the application directory.
 app.use(express.static('public'));
 app.set(express.static(__dirname + '/views'));
+app.use(express.static(__dirname + '/JS'));
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(session({ secret: 'keep it safe',
@@ -31,7 +32,9 @@ app.use(passport.session());
 app.use(flash());
 
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
+app.engine('html', require('ejs').renderFile);
 app.set("view engine", "handlebars", "html");
+
 
 // Import routes and give the server access to them.
 require("./config/passport")(passport);
