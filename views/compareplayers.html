@@ -20,8 +20,7 @@
 		<link href="assets/css/creative.min.css" rel="stylesheet">
 
 		<link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
-		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-		<script  type="text/javascript" src="assets/js/typeahead.min.js"></script>
+
 		<script  type="text/javascript" src="assets/js/typeahead.bundle.min.js"></script>
 		<!-- <script type="text/javascript">
 		$(document).ready(function(){
@@ -203,6 +202,7 @@
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
 		<script src="assets/vendor/scrollreveal/scrollreveal.min.js"></script>
 		<script src="assets/vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
+		<script  type="text/javascript" src="assets/js/typeahead.bundle.min.js"></script>
 
 		<!-- Theme JavaScript -->
 		<script src="assets/js/creative.min.js"></script>
@@ -214,8 +214,8 @@
             var playerBloodhound = new Bloodhound({
                 datumTokenizer: Bloodhound.tokenizers.whitespace,
                 queryTokenizer: Bloodhound.tokenizers.whitespace,
-                prefetch: {url: 'http://localhost:3000/search'},
-                remote: {url: 'http://localhost:3000/search?key=%QUERY', wildcard: '%QUERY'},
+                prefetch: {url: 'http://localhost:3000/compareplayers'},
+                remote: {url: 'http://localhost:3000/compareplayers?key=%QUERY', wildcard: '%QUERY'},
             }); // close player bloodhound
 
             $('#players-typeahead').typeahead(
