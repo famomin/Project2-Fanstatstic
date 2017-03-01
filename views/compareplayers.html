@@ -35,7 +35,7 @@
 				.bs-example{
 					font-family: sans-serif;
 					position: relative;
-					margin: 50px;
+					margin: 50px 5px;
 				}
 				.typeahead, .tt-query, .tt-hint {
 					border: 2px solid #CCCCCC;
@@ -45,7 +45,7 @@
 					line-height: 30px;
 					outline: medium none;
 					padding: 8px 12px;
-					width: 396px;
+					width: 95%;
 				}
 				.typeahead {
 					background-color: #FFFFFF;
@@ -66,7 +66,7 @@
 					box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
 					margin-top: 12px;
 					padding: 8px 0;
-					width: 422px;
+					width: 95%;
 				}
 				.tt-suggestion {
 					font-size: 24px;
@@ -135,17 +135,54 @@
 
 		<header>
 				<div class="header-content">
-						<div class="header-content-inner">
-								<h1 id="homeHeading">Dominate Your Fantasy League </h1>
-								<div class="bs-example" id="player-input-container">
-						        <input type="hidden" name="playerID" data-player="" id="playerID" value="" />
-						        <input type="text" name="typeahead" class="typeahead tt-query" autocomplete="off" spellcheck="false" placeholder="Type your Query" id="players-typeahead">
-						        <button type="button" name="add-player" id="add-player">Add player</button>
-						    </div>
-						    <div class="player-list" style="border:1px solid #0097CF">
+						<div class="container-fluid">
+								<h1 id="homeHeading">Select Players</h1>
+								<h3 id="homeHeading">Then Press Compare Players to See Results</h3>
+								<div class="row">
+											<div class="col-sm-2 col-sm-offset-1"> <!-- first player selection column -->
+													<div class="bs-example" id="player-input-container">
+											        <input type="hidden" name="playerID" data-player="" id="playerID" value="" />
+											        <input type="text" name="typeahead" class="typeahead tt-query" autocomplete="off" spellcheck="false" placeholder="Type your Query" id="players-typeahead">
+											        <button type="button" name="add-player" id="add-player">Add player</button>
+											    </div>
+											</div><!-- closing first player selection column -->
+
+											<div class="col-sm-2"> <!-- first player selection column -->
+													<div class="bs-example" id="player-input-container">
+											        <input type="hidden" name="playerID" data-player="" id="playerID" value="" />
+											        <input type="text" name="typeahead" class="typeahead tt-query" autocomplete="off" spellcheck="false" placeholder="Type your Query" id="players-typeahead">
+											        <button type="button" name="add-player" id="add-player">Add player</button>
+											    </div>
+											</div><!-- closing first player selection column -->
+
+											<div class="col-sm-2"> <!-- first player selection column -->
+													<div class="bs-example" id="player-input-container">
+											        <input type="hidden" name="playerID" data-player="" id="playerID" value="" />
+											        <input type="text" name="typeahead" class="typeahead tt-query" autocomplete="off" spellcheck="false" placeholder="Type your Query" id="players-typeahead">
+											        <button type="button" name="add-player" id="add-player">Add player</button>
+											    </div>
+											</div><!-- closing first player selection column -->
+
+											<div class="col-sm-2"> <!-- first player selection column -->
+													<div class="bs-example" id="player-input-container">
+											        <input type="hidden" name="playerID" data-player="" id="playerID" value="" />
+											        <input type="text" name="typeahead" class="typeahead tt-query" autocomplete="off" spellcheck="false" placeholder="Type your Query" id="players-typeahead">
+											        <button type="button" name="add-player" id="add-player">Add player</button>
+											    </div>
+											</div><!-- closing first player selection column -->
+
+											<div class="col-sm-2"> <!-- first player selection column -->
+													<div class="bs-example" id="player-input-container">
+											        <input type="hidden" name="playerID" data-player="" id="playerID" value="" />
+											        <input type="text" name="typeahead" class="typeahead tt-query" autocomplete="off" spellcheck="false" placeholder="Type your Query" id="players-typeahead">
+											        <button type="button" name="add-player" id="add-player">Add player</button>
+											    </div>
+											</div><!-- closing first player selection column -->
+								</div>
+						    <div class="player-list">
 						        <ul>
 						        </ul>
-						        <button type="button" name="compare-players" id="compare-players">Compare Players</button>
+						        <button type="button" name="compare-players" class="btn btn-primary btn-xl" id="compare-players">Compare Players</button>
 						    </div>
 						</div>
 				</div>
