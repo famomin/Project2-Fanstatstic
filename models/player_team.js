@@ -2,11 +2,11 @@ module.exports = function(sequelize, DataTypes) {
     var Player_team = sequelize.define("Player_team", {
         player_id: {
             type: DataTypes.INTEGER,
-            allowNull: false,
+            allowNull: false
         },
         team_id: {
             type: DataTypes.INTEGER,
-            allowNull: false,
+            allowNull: false
         },
         date_started: {
             type: DataTypes.DATEONLY,
@@ -17,22 +17,22 @@ module.exports = function(sequelize, DataTypes) {
             allowNull: true
         }
     },
-    {timestamps: false},
     {
      classMethods: {
       associate: function(models) {
-        Player_stat.belongsTo(models.Player, {
-            foreignKey: {
-                allowNull: false
-            }
+        Player_team.belongsTo(models.Player, {
+          foreignKey: {
+              name: 'player_id',
+              allowNull: false
+          }
         });
-        Player_stat.belongsTo(models.Team, {
-            foreginKey: {
-                allowNull: false
-            }
+        Player_team.belongsTo(models.Team, {
+            foreignKey: 'team_id',
+            allowNull: false
         });
       }
-     } 
+     },
+     timestamps: false 
     });
 
     return Player_team;

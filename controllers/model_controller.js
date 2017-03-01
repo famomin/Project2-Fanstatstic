@@ -55,7 +55,7 @@ module.exports = function(app) {
         // });
 
         // test.Player_team.findAll({
-        /*test.Player.findAll({
+        test.Player.findAll({
             where: {
                 $or: {
                     first_name: {
@@ -68,7 +68,22 @@ module.exports = function(app) {
                         $like: '%c%'
                     }
                 }
-            }
+            }, include: [
+                {
+                    model: test.Player_team,
+                    as: 'Player_team',
+                    include: [
+                        {
+                            model: test.Team,
+                            where: {
+                                team_abbr: {
+                                    $like: '%ho%'
+                                }
+                            }
+                        }
+                    ]
+                }
+            ]
         }).then(function(testDB) {
             var player_team = [];
             for (var i = 0; i < testDB.length; i++) {
@@ -76,7 +91,7 @@ module.exports = function(app) {
             }
             console.log("\n\nPlayer_team");
             console.log(player_team);
-        });*/
+        });
 
         /*
             SELECT first_name, last_name, player_position, team_abbr
@@ -86,10 +101,10 @@ module.exports = function(app) {
                 inner join teams
                     on teams.id = player_teams.team_id
         */
-        test.Player.find({
+        /*test.Player_stat.find({
             include: [
                 {
-                    model: test.Player_stat,
+                    model: test.Player,
                     where: [
                         'EXISTS (' +
                         'SELECT player_stats.games_played, player_stats.player_id, players.first_name FROM players ' +
@@ -103,6 +118,24 @@ module.exports = function(app) {
                 player_team.push(testDB[i].dataValues);
             }
             console.log(player_team);
-        });
+        });*/
+
+         /*test.Team.findAll({
+            // attributes: ['Player.id', 'Player.first_name', 'Player.last_name', 'Player_stats.games_played'],
+            include: [
+                {
+                    model: test.Player_team,
+                    as: 'Player_team',
+                    include: [
+                        {
+                            model: test.Player
+                        }
+                    ]
+                }
+            ]
+        }).then(function(testDB) {
+            // console.log(testDB[0].dataValues);
+            console.log(testDB[0].dataValues.Player_team[0].dataValues);
+        });*/
 	});
 };

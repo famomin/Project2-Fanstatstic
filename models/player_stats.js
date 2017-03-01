@@ -1,11 +1,10 @@
+'use strict';
+
 module.exports = function(sequelize, DataTypes) {
     var Player_stat = sequelize.define("Player_stat", {
         player_id: {
             type: DataTypes.INTEGER,
-            // references: {
-            //     model: Player,
-            //     key: 'id'
-            // }
+            allowNull: false
         },
         games_played: {
             type: DataTypes.INTEGER,
@@ -172,15 +171,18 @@ module.exports = function(sequelize, DataTypes) {
             allowNull: false
         }
     },
-    {timestamps: false},
     {
      classMethods: {
       associate: function(models) {
         Player_stat.belongsTo(models.Player, {
-          foreignKey: player_id
+          foreignKey: {
+              name: 'player_id',
+              allowNull: false
+          }
         });
       }
-     } 
+     },
+     timestamps: false 
     });
 
     return Player_stat;

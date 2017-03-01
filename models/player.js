@@ -1,3 +1,5 @@
+'use strict';
+
 module.exports = function(sequelize, DataTypes) {
     var Player = sequelize.define("Player", {
         id: {
@@ -16,15 +18,28 @@ module.exports = function(sequelize, DataTypes) {
         player_position: {
             type: DataTypes.STRING,
         }
-    }, {timestamps: false},
+    },
     {
-     classMethods: {
+      classMethods: {
       associate: function(models) {
-        Player.belongsTo(models.Player_stat, {
-          foreignKey: player_id
+        console.log(models);
+        Player.hasMany(models.Player_stat, {
+          foreignKey: {
+              name: 'player_id',
+              allowNull: false
+          },
+          as: 'Player_stat'
+        });
+        Player.hasMany(models.Player_team, {
+            foreignKey: {
+                name: 'player_id',
+                allowNull: false
+            },
+            as: 'Player_team'
         });
       }
-     } 
+     },
+     timestamps: false 
     });
 
     return Player;
