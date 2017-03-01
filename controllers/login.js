@@ -15,6 +15,8 @@ module.exports = function(app, passport){
     res.sendFile(path.join(__dirname, "../views/index.html"));
   	});
 
+
+
 	app.get("/login", function(req, res) {
 			console.log("GET LOGIN");
 			console.log(req.flash());
@@ -40,32 +42,35 @@ module.exports = function(app, passport){
 		failureFlash: true
 	}));
 
-	app.get('/compareplayers', isAuthenticated, function(req, res){
+	app.get('/compareplayers',
+	//isAuthenticated,
+	function(req, res){
 		console.log("GET DATAPAGE");
-		res.render('compareplayers', { user: req.user });
+		//res.render('compareplayers', { user: req.user });
+		res.sendFile(path.join(__dirname, "../views/compareplayers.html"));
 	});
 
-	
+
 	//facebook authenticate request
 	app.get('/login/facebook', passport.authenticate('facebook'));
 
-	app.get('/login/facebook/return', 
-	  		passport.authenticate('facebook', 
+	app.get('/login/facebook/return',
+	  		passport.authenticate('facebook',
 	  		  { failureRedirect: '/login' }), function(req, res){
 	  			res.sendFile(path.join(__dirname, "../views/compareplayers.html"));
 	  		});
-	
+
 	//google authenticate request
 	app.get('/auth/google', passport.authenticate('google',  {scope: 'https://www.googleapis.com/auth/plus.login'}
 		));
 
-	app.get('/auth/google/callback', 
-	  		passport.authenticate('google', 
+	app.get('/auth/google/callback',
+	  		passport.authenticate('google',
 	  		  { failureRedirect: '/login' }), function(req, res){
 	  			res.sendFile(path.join(__dirname, "../views/compareplayers.html"));
 	  		});
 
-	//logout 
+	//logout
 	app.get('/logout', function(req, res){
 		req.logout();
 		req.session.destroy();
