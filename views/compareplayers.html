@@ -21,7 +21,7 @@
 
 		<link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
 
-		<script  type="text/javascript" src="/assets/js/typeahead.bundle.min.js"></script>
+		<!--<script  type="text/javascript" src="/assets/js/typeahead.bundle.min.js"></script>-->
 		<!-- <script type="text/javascript">
 		$(document).ready(function(){
 		    $('input.typeahead').typeahead({
@@ -45,7 +45,7 @@
 					line-height: 30px;
 					outline: medium none;
 					padding: 8px 12px;
-					width: 95%;
+					width: 396px;
 				}
 				.typeahead {
 					background-color: #FFFFFF;
@@ -57,7 +57,7 @@
 					background-color:transparent;
 				}
 				.tt-hint {
-					color: #999999;
+					color: black;
 				}
 				.tt-menu {
 					background-color: #FFFFFF;
@@ -66,17 +66,21 @@
 					box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
 					margin-top: 12px;
 					padding: 8px 0;
-					width: 95%;
+					width: 396px;
+					height: 150px;
+					overflow: scroll;
 				}
 				.tt-suggestion {
 					font-size: 24px;
 					line-height: 24px;
 					padding: 3px 20px;
+					color: black;
+
 				}
 				/*.tt-suggestion.tt-is-under-cursor {*/
 				.tt-suggestion:hover {
 					background-color: #0097CF;
-					color: #FFFFFF;
+					color: black;
 				}
 				.tt-suggestion p {
 					margin: 0;
@@ -140,50 +144,23 @@
 								<h3 id="homeHeading">Then Press Compare Players to See Results</h3>
 								<div class="row">
 											<div class="col-sm-2 col-sm-offset-1"> <!-- first player selection column -->
-													<div class="bs-example" id="player-input-container">
+											<div class="container">
+												<div class="bs-example" id="player-input-container" style="margin: auto">
 											        <input type="hidden" name="playerID" data-player="" id="playerID" value="" />
 											        <input type="text" name="typeahead" class="typeahead tt-query" autocomplete="off" spellcheck="false" placeholder="Type your Query" id="players-typeahead">
 											        <button type="button" name="add-player" id="add-player">Add player</button>
 											    </div>
+											</div>
 											</div><!-- closing first player selection column -->
 
-											<div class="col-sm-2"> <!-- first player selection column -->
-													<div class="bs-example" id="player-input-container">
-											        <input type="hidden" name="playerID" data-player="" id="playerID" value="" />
-											        <input type="text" name="typeahead" class="typeahead tt-query" autocomplete="off" spellcheck="false" placeholder="Type your Query" id="players-typeahead">
-											        <button type="button" name="add-player" id="add-player">Add player</button>
-											    </div>
-											</div><!-- closing first player selection column -->
-
-											<div class="col-sm-2"> <!-- first player selection column -->
-													<div class="bs-example" id="player-input-container">
-											        <input type="hidden" name="playerID" data-player="" id="playerID" value="" />
-											        <input type="text" name="typeahead" class="typeahead tt-query" autocomplete="off" spellcheck="false" placeholder="Type your Query" id="players-typeahead">
-											        <button type="button" name="add-player" id="add-player">Add player</button>
-											    </div>
-											</div><!-- closing first player selection column -->
-
-											<div class="col-sm-2"> <!-- first player selection column -->
-													<div class="bs-example" id="player-input-container">
-											        <input type="hidden" name="playerID" data-player="" id="playerID" value="" />
-											        <input type="text" name="typeahead" class="typeahead tt-query" autocomplete="off" spellcheck="false" placeholder="Type your Query" id="players-typeahead">
-											        <button type="button" name="add-player" id="add-player">Add player</button>
-											    </div>
-											</div><!-- closing first player selection column -->
-
-											<div class="col-sm-2"> <!-- first player selection column -->
-													<div class="bs-example" id="player-input-container">
-											        <input type="hidden" name="playerID" data-player="" id="playerID" value="" />
-											        <input type="text" name="typeahead" class="typeahead tt-query" autocomplete="off" spellcheck="false" placeholder="Type your Query" id="players-typeahead">
-											        <button type="button" name="add-player" id="add-player">Add player</button>
-											    </div>
-											</div><!-- closing first player selection column -->
 								</div>
-						    <div class="player-list">
-						        <ul>
-						        </ul>
-						        <button type="button" name="compare-players" class="btn btn-primary btn-xl" id="compare-players">Compare Players</button>
-						    </div>
+								<div class="row" style="padding-top: 30px">
+									<div class="player-list">
+						        		<ul id="players">
+						        		</ul>
+						        		<button type="button" name="compare-players" class="btn btn-primary btn-xl" id="compare-players">Compare Players</button>
+						    		</div>
+								</div>
 						</div>
 				</div>
 		</header>
@@ -240,9 +217,8 @@
 		<script src="/assets/vendor/scrollreveal/scrollreveal.min.js"></script>
 		<script src="/assets/vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
 		<script  type="text/javascript" src="/assets/js/typeahead.bundle.min.js"></script>
-
 		<!-- Theme JavaScript -->
-		<script src="assets/js/creative.min.js"></script>
+		<script src="/assets/js/creative.min.js"></script>
 
     <script type="text/javascript">
 
@@ -251,8 +227,8 @@
             var playerBloodhound = new Bloodhound({
                 datumTokenizer: Bloodhound.tokenizers.whitespace,
                 queryTokenizer: Bloodhound.tokenizers.whitespace,
-                prefetch: {url: 'http://localhost:3000/compareplayers'},
-                remote: {url: 'http://localhost:3000/compareplayers?key=%QUERY', wildcard: '%QUERY'},
+                prefetch: {url: 'http://localhost:3000/search'},
+                remote: {url: 'http://localhost:3000/search?key=%QUERY', wildcard: '%QUERY'},
             }); // close player bloodhound
 
             $('#players-typeahead').typeahead(
@@ -273,7 +249,9 @@
                             return '<div style="color:#FF0000">Type to filter or see more choices...</div>';
                         },
                         suggestion: function(data){
-                            return '<div>' + data.first_name + ' ' + data.last_name + ' ' + data.team_abbr + ' '  + data.player_position + '</div>';
+							console.log("Data");
+							console.log(data);
+                            return '<div>' + data.first_name + ' ' + data.last_name + ' ' + data.Player_team[0].Team.team_abbr + ' '  + data.player_position + '</div>';
                         }
                     }
             }); //close typeahead initialization
@@ -281,9 +259,9 @@
             $('#players-typeahead').bind('typeahead:select', function(ev, suggestion){
                 // This is where you will do stuff with it after an option has been selected
                 console.log("TRIGGER THE SELECTION EVENT");
-                console.log(suggestion.id);
+                console.log(suggestion);
                 $('#playerID').val(suggestion.id);
-                var displayName = suggestion.first_name + ' ' + suggestion.last_name + ' ' + suggestion.team_abbr + ' ' + suggestion.player_position;
+                var displayName = suggestion.first_name + ' ' + suggestion.last_name + ' ' + suggestion.Player_team[0].Team.team_abbr + ' ' + suggestion.player_position;
                 $('#playerID').data('player', displayName);
                 $('.typeahead').typeahead('val', displayName);
             }); //Close typeahead bind on select
@@ -303,7 +281,7 @@
 					/*console.log($('#playerID').val());
 					console.log($('#playerID').data('player'));
 					console.log($('.typeahead').typeahead('val'));*/
-                    $('ul').append(li);
+                    $('#players').append(li);
                     $('#playerID').val('');
                     $('.typeahead').typeahead('val', '');
                 }
@@ -319,6 +297,13 @@
 	            });
 	            console.log();
 	            console.log(ids);
+
+				var playerIds = {
+					ids: ids
+				};
+
+				var currentURL = window.location.origin;
+				$.post('/displayComparison', playerIds);
             });
 
 
