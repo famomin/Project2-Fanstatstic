@@ -22,7 +22,7 @@ app.use(express.static('public'));
 app.set(express.static(__dirname + '/views'));
 app.use(express.static(__dirname + '/JS'));
 
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(session({ secret: 'keep it safe',
 				  saveUninitialized: true,
 				  resave: true }));

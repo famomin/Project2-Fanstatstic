@@ -52,6 +52,7 @@ module.exports = function(app) {
 	});
     
     app.post('/displayComparison', function(req, res) {
+        // console.log(req.body);
          test.Player.findAll({
             where: {
                 id: {
@@ -74,9 +75,13 @@ module.exports = function(app) {
                 }
             ]
         }).then(function(testDB) {
-            // console.log(testDB[0].dataValues);
-            console.log(testDB);
-            // console.log(testDB[0].dataValues.Player_team[0].dataValues);
+            console.log(testDB[0].dataValues);
+            console.log();
+            console.log(testDB[0].Player_team[0].dataValues);
+            console.log();
+            console.log(testDB[0].Player_team[0].dataValues.Team);
+            console.log();
+            console.log(testDB[0].Player_stat[0].dataValues);
         });
     });
 };
