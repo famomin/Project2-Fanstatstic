@@ -231,8 +231,8 @@
             var playerBloodhound = new Bloodhound({
                 datumTokenizer: Bloodhound.tokenizers.whitespace,
                 queryTokenizer: Bloodhound.tokenizers.whitespace,
-                prefetch: {url: 'http://localhost:3000/search'},
-                remote: {url: 'http://localhost:3000/search?key=%QUERY', wildcard: '%QUERY'},
+                prefetch: {url: 'https://secret-everglades-38178.herokuapp.com/search'},
+                remote: {url: 'https://secret-everglades-38178.herokuapp.com/search?key=%QUERY', wildcard: '%QUERY'},
             }); // close player bloodhound
 
             $('#players-typeahead').typeahead(
