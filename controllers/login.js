@@ -43,7 +43,7 @@ module.exports = function(app, passport){
 	}));
 
 	app.get('/compareplayers',
-	//isAuthenticated,
+	isAuthenticated,
 	function(req, res){
 		console.log("GET DATAPAGE");
 		//res.render('compareplayers', { user: req.user });
@@ -52,7 +52,7 @@ module.exports = function(app, passport){
 
 	//for player stats
     app.get('/playerstats',
-    //isAuthenticated,
+    isAuthenticated,
     function(req, res){
         console.log("GET Player Stats");
         //res.render('compareplayers', { user: req.user });
