@@ -50,6 +50,15 @@ module.exports = function(app, passport){
 		res.sendFile(path.join(__dirname, "../views/compareplayers.html"));
 	});
 
+	//for player stats
+    app.get('/playerstats',
+    //isAuthenticated,
+    function(req, res){
+        console.log("GET Player Stats");
+        //res.render('compareplayers', { user: req.user });
+        res.render('playerstats');
+    });
+    //check again
 
 	//facebook authenticate request
 	app.get('/login/facebook', passport.authenticate('facebook'));

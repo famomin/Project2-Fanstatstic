@@ -35,6 +35,10 @@ app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.engine('html', require('ejs').renderFile);
 app.set("view engine", "handlebars", "html");
 
+//for player Stats
+app.engine("handlebars", exphbs({ defaultLayout: "playerstatstemplate" }));
+app.set("view engine", "handlebars", "html");
+
 
 // Import routes and give the server access to them.
 require("./config/passport")(passport);

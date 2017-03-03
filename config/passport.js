@@ -25,79 +25,6 @@ module.exports = function(passport){
 		});
 
 // For Authentication Purposes
-passport.use("local-signup", new localStrategy({
-		usernameField: 'username',
-		passwordField: 'password',
-		passReqToCallback: true
-	},
-	function(req, username, password, done){
-		console.log('PASSPORT SIGN UP');
-
-		db.User.findOne({
-			where: {username: req.body.username}
-			}).then(function(user){
-
-
-			if(user){
-					console.log('PASSPORT: USER ALREADY EXISTS');
-				  return done(null, false, req.flash('signupMessage', 'That email already taken'));
-			} else {
-				console.log('PASSPORT: BEFORE CREATE');
-
-			  db.User.create({
-					username: req.body.username,
-					password: bcrypt.hashSync(req.body.password),
-					firstname: req.body.firstname,
-					lastname: req.body.lastname,
-					birthdate: req.body.birthdate
-					}).then(function(results){
-
-						return done(null, results.get());
-					});
-				}
-
-			}).catch(function(err){
-					return done(err);
-			});
-
-	}
-));
-
-passport.use('local-login', new localStrategy({
-		usernameField: 'username',
-		passwordField: 'Password',
-		passReqToCallback: true
-	},
-		function(req, email, password, done){
-				console.log("LOGIN PASSPORT");
-
-				db.User.findOne({
-				 where: {username: req.body.username}
-				}).then(function(user){
-					console.log("USER IS NEXT");
-					console.log(user)
-
-					if(!user){
-						console.log("no user");
-						return done(null, false, req.flash('loginMessage', 'No User found'));
-					}
-
-					if(!db.User.validPassword(password, user)){
-						
-						console.log("Checking password");
-						return done(null, false, req.flash('loginMessage', 'invalid password'));
-					}
-					else {
-					console.log('everything checked out');
-					return done(null, user);
-					 }
-
-				}).catch(function(err){
-						return done(err);
-				});
-
-		}
-	));
 
 
 	passport.use(new FacebookStrategy({
@@ -120,7 +47,7 @@ passport.use('local-login', new localStrategy({
 				console.log('PASSPORT fb : BEFORE CREATE');
 
 			  db.User.create({
-					//id: profile.id,
+					id: profile.id,
 					displayName: profile.displayName,
 					gender: profile.gender
 					}).then(function(results){
@@ -149,17 +76,14 @@ passport.use('local-login', new localStrategy({
 
 
 			if(user){
-					console.log('PASSPORT fb: USER ALREADY EXISTS');
 				  return done(null, user);
 			} else {
-				console.log('PASSPORT fb : BEFORE CREATE');
-
 			  db.User.create({
-					//id: profile.id,
+					id: profile.id,
 					displayName: profile.displayName,
 					gender: profile.gender
 					}).then(function(results){
-
+						console.log(results)
 						return done(null, results.get());
 					});
 				}
