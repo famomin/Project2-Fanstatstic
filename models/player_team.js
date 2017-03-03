@@ -7,14 +7,14 @@ module.exports = function(sequelize, DataTypes) {
         team_id: {
             type: DataTypes.INTEGER,
             allowNull: false
-        },
-        date_started: {
-            type: DataTypes.DATEONLY,
-            allowNull: false
-        },
-        date_left: {
-            type: DataTypes.DATEONLY,
-            allowNull: true
+        //},
+        //date_started: {
+            //type: DataTypes.DATEONLY,
+            //allowNull: false
+        //},
+        //date_left: {
+            //type: DataTypes.DATEONLY,
+            //allowNull: true
         }
     },
     {
