@@ -75,6 +75,17 @@ module.exports = function(app) {
                 }
             ]
         }).then(function(testDB) {
+            var players = [];
+            for (var i = 0; i < testDB.length; i++) {
+                var newPlayer = {
+                    playerInfo: testDB[i].dataValues.first_name + " " + testDB[i].dataValues.last_name + " " + testDB[i].Player_team[0].Team.team_abbr + " " + testDB[i].player_position,
+                    stats: testDB[i].Player_stat.dataValues
+                };
+
+                players.push(newPlayer);
+            };
+
+            res.render('playerstats', {Player: players});
             console.log(testDB[0].dataValues);
             console.log();
             console.log(testDB[0].Player_team[0].dataValues);

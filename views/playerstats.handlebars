@@ -28,6 +28,97 @@
         <div class="header-content-inner">
             <h1 id="homeHeading">Player Comparison</h1>
             <hr>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Player</th>
+                        <th>Games Played</th>
+                        <th>Pass Attempts</th>
+                        <th>Pass Completions</th>
+                        <th>Pass Yards</th>
+                        <th>Pass TD</th>
+                        <th>Pass Int</th>
+                        <th>QBR</th>
+                        <th>Rush Attempts</th>
+                        <th>Rush Yards</th>
+                        <th>Rush TD</th>
+                        <th>Rush Fumbles</th>
+                        <th>Targets</th>
+                        <th>Receptions</th>
+                        <th>Receiving Yards</th>
+                        <th>Receiving TD</th>
+                        <th>Solo Tackles</th>
+                        <th>Total Tackles</th>
+                        <th>Tackle Assists</th>
+                        <th>Sacks</th>
+                        <th>Sack Yards</th>
+                        <th>Tackles For Loss</th>
+                        <th>Interceptions</th>
+                        <th>Intercption TD</th>
+                        <th>Kick Return TD</th>
+                        <th>Punt Return TD</th>
+                        <th>Field Goals Made</th>
+                        <th>Field Goals Attempted</th>
+                        <th>Field Goals (1 - 19 Yds) Made</th>
+                        <th>Field Goals (1 - 19 Yds) Attempted</th>
+                        <th>Field Goals (20 - 29 Yds) Made</th>
+                        <th>Field Goals (20 - 29 Yds) Attempted</th>
+                        <th>Field Goals (30 - 39 Yds) Made</th>
+                        <th>Field Goals (30 - 39 Yds) Attempted</th>
+                        <th>Field Goals (40 - 49 Yds) Made</th>
+                        <th>Field Goals (40 - 49 Yds) Attempted</th>
+                        <th>Field Goals (50 Plus Yds) Made</th>
+                        <th>Field Goals (50 Plus Yds) Attempted</th>
+                        <th>Extra Points Made</th>
+                        <th>Extra Poins Attempted</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each Player}}
+                        <tr>
+                            <td>{{this.playerInfo}}</td>
+                            <td>{{this.stats.games_played}}</td>
+                            <td>{{this.stats.pass_att}}</td>
+                            <td>{{this.stats.pass_comp}}</td>
+                            <td>{{this.stats.pass_yd}}</td>
+                            <td>{{this.stats.pass_td}}</td>
+                            <td>{{this.stats.pass_int}}</td>
+                            <td>{{this.stats.qbr}}</td>
+                            <td>{{this.stats.rush_att}}</td>
+                            <td>{{this.stats.rush_yd}}</td>
+                            <td>{{this.stats.rush_fum}}</td>
+                            <td>{{this.stats.targ}}</td>
+                            <td>{{this.stats.rec}}</td>
+                            <td>{{this.stats.rec_yds}}</td>
+                            <td>{{this.stats.rec_td}}</td>
+                            <td>{{this.stats.tackle_solo}}</td>
+                            <td>{{this.stats.tackle_tot}}</td>
+                            <td>{{this.stats.tackle_ast}}</td>
+                            <td>{{this.stats.sacks}}</td>
+                            <td>{{this.stats.sack_yds}}</td>
+                            <td>{{this.stats.tackle_for_loss}}</td>
+                            <td>{{this.stats.interceptions}}</td>
+                            <td>{{this.stats.int_td}}</td>
+                            <td>{{this.stats.kick_ret_td}}</td>
+                            <td>{{this.stats.punt_ret_td}}</td>
+                            <td>{{this.stats.fg_made}}</td>
+                            <td>{{this.stats.fg_att}}</td>
+                            <td>{{this.stats.fg_made_1_19}}</td>
+                            <td>{{this.stats.fg_att_1_19}}</td>
+                            <td>{{this.stats.fg_made_20_29}}</td>
+                            <td>{{this.stats.fg_att_20_29}}</td>
+                            <td>{{this.stats.fg_made_30_39}}</td>
+                            <td>{{this.stats.fg_att_30_39}}</td>
+                            <td>{{this.stats.fg_made_40_49}}</td>
+                            <td>{{this.stats.fg_att_40_40}}</td>
+                            <td>{{this.stats.fg_made_50}}</td>
+                            <td>{{this.stats.fg_att_50}}</td>
+                            <td>{{this.stats.xp_made}}</td>
+                            <td>{{this.stats.xp_att}}</td>
+                        </tr>
+                    {{/each}}
+                </tbody>
+            </table>
             {{#each Player_stat}}
             {{/each}}
         </div>
