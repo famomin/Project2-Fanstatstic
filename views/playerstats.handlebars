@@ -12,67 +12,68 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1"> <!-- navbar-collapse -->
             <ul class="nav navbar-nav navbar-right">
                 <li>
-                    <a class="page-scroll" href="#about">Select Players Again</a>
+                    <a class="page-scroll" href="/compareplayers">Select Players Again</a>
                 </li>
 
                 <li>
-                    <a class="page-scroll" href="#about">Back to Home Page</a>
+                    <a class="page-scroll" href="/">Back to Home Page</a>
                 </li>
             </ul>
         </div> <!-- closing navbar-collapse -->
     </div> <!-- closing navbar container-fluid -->
 </nav> <!-- closing navbar -->
 
-<div class="container" style="color: antiquewhite">
-    <div class="header-content" style="margin: 15px;">
+<div class="container-fluid" style="color: antiquewhite">
+    <div class="header-content" style="margin: 15px; padding-top:5%">
         <div class="header-content-inner">
-            <h1 id="homeHeading">Player Comparison</h1>
+
+            <h1 id="homeHeading" class="text-center">Player Stats Comparison</h1>
             <hr>
-            <div class="container">
-            <table style="display: block; overflow-x: auto; width: 85%; height: auto;">
+            <div class="container-fluid">
+            <table style="display: inline-block; text-align: center; overflow-x: auto; width: auto; height: auto;" class="text-center">
                 <h3>Offensive Stats</h3>
                 <thead>
                     <tr>
-                        <th style="width: fit-content; padding: 4px; margin: 25px;">Player</th>
-                        <th style="width: fit-content; padding: 4px; margin: 25px;">Games Played</th>
-                        <th style="width: fit-content; padding: 4px; margin: 25px;">Pass Attempts</th>
-                        <th style="width: fit-content; padding: 4px; margin: 25px;">Pass Completions</th>
-                        <th style="width: fit-content; padding: 4px; margin: 25px;">Pass Yards</th>
-                        <th style="width: fit-content; padding: 4px; margin: 25px;">Pass TD</th>
-                        <th style="width: fit-content; padding: 4px; margin: 25px;">Pass Int</th>
-                        <th style="width: fit-content; padding: 4px; margin: 25px;">QBR</th>
-                        <th style="width: fit-content; padding: 4px; margin: 25px;">Rush Attempts</th>
-                        <th style="width: fit-content; padding: 4px; margin: 25px;">Rush Yards</th>
-                        <th style="width: fit-content; padding: 4px; margin: 25px;">Rush TD</th>
-                        <th style="width: fit-content; padding: 4px; margin: 25px;">Rush Fumbles</th>
-                        <th style="width: fit-content; padding: 4px; margin: 25px;">Targets</th>
-                        <th style="width: fit-content; padding: 4px; margin: 25px;">Receptions</th>
-                        <th style="width: fit-content; padding: 4px; margin: 25px;">Receiving Yards</th>
-                        <th style="width: fit-content; padding: 4px; margin: 25px;">Receiving TD</th>
+                        <th style="width: fit-content; text-align: center; padding: 4px; margin: 25px;">Player</th>
+                        <th style="width: fit-content; padding: 4px; text-align: center; margin: 25px;">Games Played</th>
+                        <th style="width: fit-content; text-align: center; padding: 4px; margin: 25px;">Pass Attempts</th>
+                        <th style="width: fit-content; text-align: center; padding: 4px; margin: 25px;">Pass Completions</th>
+                        <th style="width: fit-content; text-align: center; padding: 4px; margin: 25px;">Pass Yards</th>
+                        <th style="width: fit-content; text-align: center; padding: 4px; margin: 25px;">Pass TD</th>
+                        <th style="width: fit-content; text-align: center; padding: 4px; margin: 25px;">Pass Int</th>
+                        <th style="width: fit-content; text-align: center; padding: 4px; margin: 25px;">QBR</th>
+                        <th style="width: fit-content; text-align: center; padding: 4px; margin: 25px;">Rush Attempts</th>
+                        <th style="width: fit-content; text-align: center; padding: 4px; margin: 25px;">Rush Yards</th>
+                        <th style="width: fit-content; text-align: center; padding: 4px; margin: 25px;">Rush TD</th>
+                        <th style="width: fit-content; text-align: center; padding: 4px; margin: 25px;">Rush Fumbles</th>
+                        <th style="width: fit-content; text-align: center; padding: 4px; margin: 25px;">Targets</th>
+                        <th style="width: fit-content; text-align: center; padding: 4px; margin: 25px;">Receptions</th>
+                        <th style="width: fit-content; text-align: center; padding: 4px; margin: 25px;">Receiving Yards</th>
+                        <th style="width: fit-content; text-align: center; padding: 4px; margin: 25px;">Receiving TD</th>
                        {{!-- <th style="width: fit-content; padding: 4px; margin: 25px;">Solo Tackles</th>
-                        <th style="width: fit-content; padding: 4px; margin: 25px;">Total Tackles</th>
-                        <th style="width: fit-content; padding: 4px; margin: 25px;">Tackle Assists</th>
-                        <th style="width: fit-content; padding: 4px; margin: 25px;">Sacks</th>
-                        <th style="width: fit-content; padding: 4px; margin: 25px;">Sack Yards</th>
-                        <th style="width: fit-content; padding: 4px; margin: 25px;">Tackles For Loss</th>
-                        <th style="width: fit-content; padding: 4px; margin: 25px;">Interceptions</th>
-                        <th style="width: fit-content; padding: 4px; margin: 25px;">Intercption TD</th>--}}
+                        <th style="width: fit-content; text-align: center; padding: 4px; margin: 25px;">Total Tackles</th>
+                        <th style="width: fit-content; text-align: center; padding: 4px; margin: 25px;">Tackle Assists</th>
+                        <th style="width: fit-content; text-align: center; padding: 4px; margin: 25px;">Sacks</th>
+                        <th style="width: fit-content; text-align: center; padding: 4px; margin: 25px;">Sack Yards</th>
+                        <th style="width: fit-content; text-align: center; padding: 4px; margin: 25px;">Tackles For Loss</th>
+                        <th style="width: fit-content; text-align: center; padding: 4px; margin: 25px;">Interceptions</th>
+                        <th style="width: fit-content; text-align: center; padding: 4px; margin: 25px;">Intercption TD</th>--}}
                         {{!--<th style="width: fit-content; padding: 4px; margin: 25px;">Kick Return TD</th>
-                        <th style="width: fit-content; padding: 4px; margin: 25px;">Punt Return TD</th>
-                        <th style="width: fit-content; padding: 4px; margin: 25px;">Field Goals Made</th>
-                        <th style="width: fit-content; padding: 4px; margin: 25px;">Field Goals Attempted</th>
-                        <th style="width: fit-content; padding: 4px; margin: 25px;">Field Goals (1 - 19 Yds) Made</th>
-                        <th style="width: fit-content; padding: 4px; margin: 25px;">Field Goals (1 - 19 Yds) Attempted</th>
-                        <th style="width: fit-content; padding: 4px; margin: 25px;">Field Goals (20 - 29 Yds) Made</th>
-                        <th style="width: fit-content; padding: 4px; margin: 25px;">Field Goals (20 - 29 Yds) Attempted</th>
-                        <th style="width: fit-content; padding: 4px; margin: 25px;">Field Goals (30 - 39 Yds) Made</th>
-                        <th style="width: fit-content; padding: 4px; margin: 25px;">Field Goals (30 - 39 Yds) Attempted</th>
-                        <th style="width: fit-content; padding: 4px; margin: 25px;">Field Goals (40 - 49 Yds) Made</th>
-                        <th style="width: fit-content; padding: 4px; margin: 25px;">Field Goals (40 - 49 Yds) Attempted</th>
+                        <th style="width: fit-content; text-align: center; padding: 4px; margin: 25px;">Punt Return TD</th>
+                        <th style="width: fit-content; text-align: center; padding: 4px; margin: 25px;">Field Goals Made</th>
+                        <th style="width: fit-content; text-align: center; padding: 4px; margin: 25px;">Field Goals Attempted</th>
+                        <th style="width: fit-content; text-align: center; padding: 4px; margin: 25px;">Field Goals (1 - 19 Yds) Made</th>
+                        <th style="width: fit-content; text-align: center; padding: 4px; margin: 25px;">Field Goals (1 - 19 Yds) Attempted</th>
+                        <th style="width: fit-content; text-align: center; padding: 4px; margin: 25px;">Field Goals (20 - 29 Yds) Made</th>
+                        <th style="width: fit-content; text-align: center; padding: 4px; margin: 25px;">Field Goals (20 - 29 Yds) Attempted</th>
+                        <th style="width: fit-content; text-align: center; padding: 4px; margin: 25px;">Field Goals (30 - 39 Yds) Made</th>
+                        <th style="width: fit-content; text-align: center; padding: 4px; margin: 25px;">Field Goals (30 - 39 Yds) Attempted</th>
+                        <th style="width: fit-content; text-align: center; padding: 4px; margin: 25px;">Field Goals (40 - 49 Yds) Made</th>
+                        <th style="width: fit-content; text-align: center; padding: 4px; margin: 25px;">Field Goals (40 - 49 Yds) Attempted</th>
                         <th style="width: fit-content; padding: 4px; margin: 25px;">Field Goals (50 Plus Yds) Made</th>
-                        <th style="width: fit-content; padding: 4px; margin: 25px;">Field Goals (50 Plus Yds) Attempted</th>
-                        <th style="width: fit-content; padding: 4px; margin: 25px;">Extra Points Made</th>
-                        <th style="width: fit-content; padding: 4px; margin: 25px;">Extra Poins Attempted</th>--}}
+                        <th style="width: fit-content; text-align: center; padding: 4px; margin: 25px;">Field Goals (50 Plus Yds) Attempted</th>
+                        <th style="width: fit-content; text-align: center; padding: 4px; margin: 25px;">Extra Points Made</th>
+                        <th style="width: fit-content; text-align: center; padding: 4px; margin: 25px;">Extra Poins Attempted</th>--}}
                     </tr>
                 </thead>
                 <tbody>
@@ -122,81 +123,82 @@
                     {{/each}}
                 </tbody>
             </table>
+            <hr>
             <h3>Defensive Stats</h3>
-            <table style="display: block; overflow-x: auto; width: 85%; height: auto;">
+            <table style="display: inline-block; overflow-x: auto; width: auto; height: auto;">
                 <thead>
                     <tr>
-                        <th style="width: fit-content; padding: 4px; margin: 25px;">Player</th>
-                        <th style="width: fit-content; padding: 4px; margin: 25px;">Solo Tackles</th>
-                        <th style="width: fit-content; padding: 4px; margin: 25px;">Total Tackles</th>
-                        <th style="width: fit-content; padding: 4px; margin: 25px;">Tackle Assists</th>
-                        <th style="width: fit-content; padding: 4px; margin: 25px;">Sacks</th>
-                        <th style="width: fit-content; padding: 4px; margin: 25px;">Sack Yards</th>
-                        <th style="width: fit-content; padding: 4px; margin: 25px;">Tackles For Loss</th>
-                        <th style="width: fit-content; padding: 4px; margin: 25px;">Interceptions</th>
-                        <th style="width: fit-content; padding: 4px; margin: 25px;">Intercption TD</th>
+                        <th style="width: fit-content; text-align: center; padding: 4px; margin: 25px;">Player</th>
+                        <th style="width: fit-content; text-align: center; padding: 4px; margin: 25px;">Solo Tackles</th>
+                        <th style="width: fit-content; text-align: center; padding: 4px; margin: 25px;">Total Tackles</th>
+                        <th style="width: fit-content; text-align: center; padding: 4px; margin: 25px;">Tackle Assists</th>
+                        <th style="width: fit-content; text-align: center; padding: 4px; margin: 25px;">Sacks</th>
+                        <th style="width: fit-content; text-align: center; padding: 4px; margin: 25px;">Sack Yards</th> 
+                        <th style="width: fit-content; text-align: center; padding: 4px; margin: 25px;">Tackles For Loss</th>
+                        <th style="width: fit-content; text-align: center; padding: 4px; margin: 25px;">Interceptions</th>
+                        <th style="width: fit-content; text-align: center; padding: 4px; margin: 25px;">Intercption TD</th>
                     </tr>
                 </thead>
                 <tbody>
                     {{#each Player}}
                         <tr>
-                            <td style="width: fit-content; padding: 4px;">{{playerInfo}}</td>
-                            <td style="width: fit-content; padding: 4px;">{{this.stats.tackle_solo}}</td>
-                            <td style="width: fit-content; padding: 4px;">{{this.stats.tackle_tot}}</td>
-                            <td style="width: fit-content; padding: 4px;">{{this.stats.tackle_ast}}</td>
-                            <td style="width: fit-content; padding: 4px;">{{this.stats.sacks}}</td>
-                            <td style="width: fit-content; padding: 4px;">{{this.stats.sack_yds}}</td>
-                            <td style="width: fit-content; padding: 4px;">{{this.stats.tackle_for_loss}}</td>
-                            <td style="width: fit-content; padding: 4px;">{{this.stats.interceptions}}</td>
-                            <td style="width: fit-content; padding: 4px;">{{this.stats.int_td}}</td>
+                            <td style="width: fit-content; text-align: center; padding: 4px;">{{playerInfo}}</td>
+                            <td style="width: fit-content; text-align: center; padding: 4px;">{{this.stats.tackle_solo}}</td>
+                            <td style="width: fit-content; text-align: center; padding: 4px;">{{this.stats.tackle_tot}}</td>
+                            <td style="width: fit-content; text-align: center; padding: 4px;">{{this.stats.tackle_ast}}</td>
+                            <td style="width: fit-content; text-align: center; padding: 4px;">{{this.stats.sacks}}</td>
+                            <td style="width: fit-content; text-align: center; padding: 4px;">{{this.stats.sack_yds}}</td>
+                            <td style="width: fit-content; text-align: center; padding: 4px;">{{this.stats.tackle_for_loss}}</td>
+                            <td style="width: fit-content; text-align: center; padding: 4px;">{{this.stats.interceptions}}</td>
+                            <td style="width: fit-content; text-align: center; padding: 4px;">{{this.stats.int_td}}</td>
                         </tr>
                     {{/each}}
                 </tbody>
             </table>
-
+            <hr>
             <h3>Special Teams Stats</h3>
-            <table style="display: block; overflow-x: auto; width: 85%; height: auto;">
+            <table style="display: block; overflow-x: auto; width: auto; height: auto;" class="text-center">
                 <thead>
                     <tr>
-                        <th style="width: fit-content; padding: 4px; margin: 25px;">Player</th>
-                        <th style="width: fit-content; padding: 4px; margin: 25px;">Kick Return TD</th>
-                        <th style="width: fit-content; padding: 4px; margin: 25px;">Punt Return TD</th>
-                        <th style="width: fit-content; padding: 4px; margin: 25px;">Field Goals Made</th>
-                        <th style="width: fit-content; padding: 4px; margin: 25px;">Field Goals Attempted</th>
-                        <th style="width: fit-content; padding: 4px; margin: 25px;">Field Goals (1 - 19 Yds) Made</th>
-                        <th style="width: fit-content; padding: 4px; margin: 25px;">Field Goals (1 - 19 Yds) Attempted</th>
-                        <th style="width: fit-content; padding: 4px; margin: 25px;">Field Goals (20 - 29 Yds) Made</th>
-                        <th style="width: fit-content; padding: 4px; margin: 25px;">Field Goals (20 - 29 Yds) Attempted</th>
-                        <th style="width: fit-content; padding: 4px; margin: 25px;">Field Goals (30 - 39 Yds) Made</th>
-                        <th style="width: fit-content; padding: 4px; margin: 25px;">Field Goals (30 - 39 Yds) Attempted</th>
-                        <th style="width: fit-content; padding: 4px; margin: 25px;">Field Goals (40 - 49 Yds) Made</th>
-                        <th style="width: fit-content; padding: 4px; margin: 25px;">Field Goals (40 - 49 Yds) Attempted</th>
-                        <th style="width: fit-content; padding: 4px; margin: 25px;">Field Goals (50 Plus Yds) Made</th>
-                        <th style="width: fit-content; padding: 4px; margin: 25px;">Field Goals (50 Plus Yds) Attempted</th>
-                        <th style="width: fit-content; padding: 4px; margin: 25px;">Extra Points Made</th>
-                        <th style="width: fit-content; padding: 4px; margin: 25px;">Extra Poins Attempted</th>
+                        <th style="width: fit-content; text-align: center; padding: 4px; margin: 25px;">Player</th>
+                        <th style="width: fit-content; text-align: center; padding: 4px; margin: 25px;">Kick Return TD</th>
+                        <th style="width: fit-content; text-align: center; padding: 4px; margin: 25px;">Punt Return TD</th>
+                        <th style="width: fit-content; text-align: center; padding: 4px; margin: 25px;">FG Made</th>
+                        <th style="width: fit-content; text-align: center; padding: 4px; margin: 25px;">FG Att</th>
+                        <th style="width: fit-content; text-align: center; padding: 4px; margin: 25px;">FG (1 - 19 Yds) Made</th>
+                        <th style="width: fit-content; text-align: center; padding: 4px; margin: 25px;">FG (1 - 19 Yds) Att</th>
+                        <th style="width: fit-content; text-align: center; padding: 4px; margin: 25px;">FG (20 - 29 Yds) Made</th>
+                        <th style="width: fit-content; text-align: center; padding: 4px; margin: 25px;">FG (20 - 29 Yds) Att</th>
+                        <th style="width: fit-content; text-align: center; padding: 4px; margin: 25px;">FG (30 - 39 Yds) Made</th>
+                        <th style="width: fit-content; text-align: center; padding: 4px; margin: 25px;">FG (30 - 39 Yds) Att</th>
+                        <th style="width: fit-content; text-align: center; padding: 4px; margin: 25px;">FG (40 - 49 Yds) Made</th>
+                        <th style="width: fit-content; text-align: center; padding: 4px; margin: 25px;">FG (40 - 49 Yds) Att</th>
+                        <th style="width: fit-content; text-align: center; padding: 4px; margin: 25px;">FG (50 Plus Yds) Made</th>
+                        <th style="width: fit-content; text-align: center; padding: 4px; margin: 25px;">FG (50 Plus Yds) Att</th>
+                        <th style="width: fit-content; text-align: center; padding: 4px; margin: 25px;">Extra Points Made</th>
+                        <th style="width: fit-content; text-align: center; padding: 4px; margin: 25px;">Extra Poins Att</th>
                     </tr>
                 </thead>
                 <tbody>
                     {{#each Player}}
                         <tr>
-                            <td style="width: fit-content; padding: 4px;">{{playerInfo}}</td>
-                            <td style="width: fit-content; padding: 4px;">{{this.stats.kick_ret_td}}</td>
-                            <td style="width: fit-content; padding: 4px;">{{this.stats.punt_ret_td}}</td>
-                            <td style="width: fit-content; padding: 4px;">{{this.stats.fg_made}}</td>
-                            <td style="width: fit-content; padding: 4px;">{{this.stats.fg_att}}</td>
-                            <td style="width: fit-content; padding: 4px;">{{this.stats.fg_made_1_19}}</td>
-                            <td style="width: fit-content; padding: 4px;">{{this.stats.fg_att_1_19}}</td>
-                            <td style="width: fit-content; padding: 4px;">{{this.stats.fg_made_20_29}}</td>
-                            <td style="width: fit-content; padding: 4px;">{{this.stats.fg_att_20_29}}</td>
-                            <td style="width: fit-content; padding: 4px;">{{this.stats.fg_made_30_39}}</td>
-                            <td style="width: fit-content; padding: 4px;">{{this.stats.fg_att_30_39}}</td>
-                            <td style="width: fit-content; padding: 4px;">{{this.stats.fg_made_40_49}}</td>
-                            <td style="width: fit-content; padding: 4px;">{{this.stats.fg_att_40_40}}</td>
-                            <td style="width: fit-content; padding: 4px;">{{this.stats.fg_made_50}}</td>
-                            <td style="width: fit-content; padding: 4px;">{{this.stats.fg_att_50}}</td>
-                            <td style="width: fit-content; padding: 4px;">{{this.stats.xp_made}}</td>
-                            <td style="width: fit-content; padding: 4px;">{{this.stats.xp_att}}</td>
+                            <td style="width: fit-content; text-align: center; padding: 4px;">{{playerInfo}}</td>
+                            <td style="width: fit-content; text-align: center; padding: 4px;">{{this.stats.kick_ret_td}}</td>
+                            <td style="width: fit-content; text-align: center; padding: 4px;">{{this.stats.punt_ret_td}}</td>
+                            <td style="width: fit-content; text-align: center; padding: 4px;">{{this.stats.fg_made}}</td>
+                            <td style="width: fit-content; text-align: center; padding: 4px;">{{this.stats.fg_att}}</td>
+                            <td style="width: fit-content; text-align: center; padding: 4px;">{{this.stats.fg_made_1_19}}</td>
+                            <td style="width: fit-content; text-align: center; padding: 4px;">{{this.stats.fg_att_1_19}}</td>
+                            <td style="width: fit-content; text-align: center; padding: 4px;">{{this.stats.fg_made_20_29}}</td>
+                            <td style="width: fit-content; text-align: center; padding: 4px;">{{this.stats.fg_att_20_29}}</td>
+                            <td style="width: fit-content; text-align: center; padding: 4px;">{{this.stats.fg_made_30_39}}</td>
+                            <td style="width: fit-content; text-align: center; padding: 4px;">{{this.stats.fg_att_30_39}}</td>
+                            <td style="width: fit-content; text-align: center; padding: 4px;">{{this.stats.fg_made_40_49}}</td>
+                            <td style="width: fit-content; text-align: center; padding: 4px;">{{this.stats.fg_att_40_40}}</td>
+                            <td style="width: fit-content; text-align: center; padding: 4px;">{{this.stats.fg_made_50}}</td>
+                            <td style="width: fit-content; text-align: center; padding: 4px;">{{this.stats.fg_att_50}}</td>
+                            <td style="width: fit-content; text-align: center; padding: 4px;">{{this.stats.xp_made}}</td>
+                            <td style="width: fit-content; text-align: center; padding: 4px;">{{this.stats.xp_att}}</td>
                         </tr>
                     {{/each}}
                 </tbody>
