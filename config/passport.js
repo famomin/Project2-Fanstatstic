@@ -46,8 +46,8 @@ module.exports = function(passport){
 			} else {
 				console.log('PASSPORT fb : BEFORE CREATE');
 
-			  db.User.create({
-					id: profile.id,
+			  db.fblogin.create({
+					fbid: profile.id,
 					displayName: profile.displayName,
 					gender: profile.gender
 					}).then(function(results){
@@ -73,12 +73,12 @@ module.exports = function(passport){
       db.googlogin.findOne({
 			where: {id: profile.id}
 			}).then(function(user){
-
+				console.log(user);
 
 			if(user){
 				  return done(null, user);
 			} else {
-			  db.User.create({
+			  db.googlogin.create({
 					id: profile.id,
 					displayName: profile.displayName,
 					gender: profile.gender
@@ -91,6 +91,6 @@ module.exports = function(passport){
 			}).catch(function(err){
 					return done(err);
 			});
-	    	}
+	    }
 	));
 };

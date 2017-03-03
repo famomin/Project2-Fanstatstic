@@ -1,7 +1,7 @@
 module.exports = function(sequelize, DataTypes) {
     var googlogin = sequelize.define("googlogin", {
         id: {
-            type: DataTypes.BIGINT,
+            type: DataTypes.STRING,
             allowNull: false,
             primaryKey: true
         },

@@ -1,7 +1,7 @@
 module.exports = function(sequelize, DataTypes) {
     var fblogin = sequelize.define("fblogin", {
         id: {
-            type: DataTypes.INTEGER.UNSIGNED,
+            type: DataTypes.BIGINT,
             allowNull: false,
             primaryKey: true
         },
