@@ -159,7 +159,7 @@
 											</div><!-- closing first player selection column -->
 
 								</div>
-								<div class="row" style="padding-top: 30px">
+								<div class="row" style="padding-top: 30px" id="playerIdContainer" style="display: none">
 									<div class="player-list">
 						        		<ul id="players">
 						        		</ul>
@@ -286,6 +286,7 @@
 					/*console.log($('#playerID').val());
 					console.log($('#playerID').data('player'));
 					console.log($('.typeahead').typeahead('val'));*/
+					$('#playerIdContainer').show();
                     $('#players').append(li);
                     $('#playerID').val('');
                     $('.typeahead').typeahead('val', '');
