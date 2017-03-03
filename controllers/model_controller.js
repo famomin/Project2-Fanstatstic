@@ -52,11 +52,12 @@ module.exports = function(app) {
 	});
     
     app.post('/displayComparison', function(req, res) {
-        // console.log(req.body);
+        console.log(req.body);
+
          test.Player.findAll({
             where: {
                 id: {
-                    $in: req.body.ids
+                    $in: req.body.playerID.split(",")
                 }
             },
             include: [
@@ -79,20 +80,20 @@ module.exports = function(app) {
             for (var i = 0; i < testDB.length; i++) {
                 var newPlayer = {
                     playerInfo: testDB[i].dataValues.first_name + " " + testDB[i].dataValues.last_name + " " + testDB[i].Player_team[0].Team.team_abbr + " " + testDB[i].player_position,
-                    stats: testDB[i].Player_stat.dataValues
+                    stats: testDB[i].Player_stat[0].dataValues
                 };
 
                 players.push(newPlayer);
             };
-
-            res.render('playerstats', {Player: players});
-            console.log(testDB[0].dataValues);
+            console.log(players);
+            /*console.log(testDB[0].dataValues);
             console.log();
             console.log(testDB[0].Player_team[0].dataValues);
             console.log();
             console.log(testDB[0].Player_team[0].dataValues.Team);
             console.log();
-            console.log(testDB[0].Player_stat[0].dataValues);
+            console.log(testDB[0].Player_stat[0].dataValues);*/
+            res.render('playerstats', {Player: players});
         });
     });
 };
