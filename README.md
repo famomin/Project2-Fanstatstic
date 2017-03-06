@@ -38,7 +38,7 @@ You can give a brief listing of the technologies you've learned and applied here
 
 
 ## Getting Started
-To get a copy for testing purpose, please download repo as zip.
+To get a copy for testing purpose, please download repo as zip. Run server.js using node, and http://localhost:3000/ as URL for testing purpose.
 
 ## Built With
 * Creative - Template of choice from Start Bootstrap
