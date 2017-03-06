@@ -1,9 +1,10 @@
 # Project2-fanSTATStic
 
+## Description
 fanSTATStic is a website for sports fan who want to compare the stats of many player in one search. Also, it is a research site for fantasy players to do their research before their league drafts.
 
-# URL
-
+## URL
+https://secret-everglades-38178.herokuapp.com/
 
 ## Screenshots
 ### Homepage
