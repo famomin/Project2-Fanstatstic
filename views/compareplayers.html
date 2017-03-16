@@ -1,324 +1,326 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-		<meta charset="UTF-8">
-		<title>fanSTATStic - Player Selection</title>
-		<!-- Bootstrap Core CSS -->
-		<link href="/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<meta charset="UTF-8">
+	<title>fanSTATStic - Player Selection</title>
+	<!-- Bootstrap Core CSS -->
+	<link href="/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
-		<!-- Custom Fonts -->
-		<link href="/assets/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-		<link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
-		<link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
-
-
-
-		<!-- Plugin CSS -->
-		<link href="/assets/vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
-
-		<!-- Theme CSS -->
-		<link href="/assets/css/creative.min.css" rel="stylesheet">
-
-		<link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
-
-		<!--<script  type="text/javascript" src="/assets/js/typeahead.bundle.min.js"></script>-->
-		<!-- <script type="text/javascript">
-		$(document).ready(function(){
-		    $('input.typeahead').typeahead({
-		        name: 'countries',
-		        remote: 'http://localhost:3000/search?key=%QUERY',
-		        limit: 20
-		    });
-		});
-		</script> -->
-		<style type="text/css">
-				.bs-example{
-					font-family: sans-serif;
-					position: relative;
-					margin: 50px 5px;
-				}
-				.typeahead, .tt-query, .tt-hint {
-					border: 2px solid #CCCCCC;
-					border-radius: 8px;
-					font-size: 24px;
-					height: 30px;
-					line-height: 30px;
-					outline: medium none;
-					padding: 8px 12px;
-					width: 396px;
-				}
-				.typeahead {
-					background-color: #FFFFFF;
-				}
-				.typeahead:focus {
-					border: 2px solid #0097CF;
-				}
-				.tt-query {
-					background-color:transparent;
-				}
-				.tt-hint {
-					color: black;
-				}
-				.tt-menu {
-					background-color: #FFFFFF;
-					border: 1px solid rgba(0, 0, 0, 0.2);
-					border-radius: 8px;
-					box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-					margin-top: 12px;
-					padding: 8px 0;
-					width: 396px;
-					height: 150px;
-					overflow: scroll;
-				}
-				.tt-suggestion {
-					font-size: 24px;
-					line-height: 24px;
-					padding: 3px 20px;
-					color: black;
-
-				}
-				/*.tt-suggestion.tt-is-under-cursor {*/
-				.tt-suggestion:hover {
-					background-color: #0097CF;
-					color: black;
-				}
-				.tt-suggestion p {
-					margin: 0;
-				}
+	<!-- Custom Fonts -->
+	<link href="/assets/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+	<link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'
+	 rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic'
+	 rel='stylesheet' type='text/css'>
 
 
-				#siteLogo {
-					margin: 0;
-					padding: 0;
-					width: 12%;
-					height: auto;
-				}
 
-				#siteNameLogo {
-					font-family: 'Lobster', cursive;
-					font-size: 30px;
-					/*color: #E16f31;*/
-					text-transform: none;
-					padding-top: 0px;
-				}
+	<!-- Plugin CSS -->
+	<link href="/assets/vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
 
-				.socialMedia {
-						width: 40px;
-						height: 40px;
-						margin: 5px;
-				}
+	<!-- Theme CSS -->
+	<link href="/assets/css/creative.min.css" rel="stylesheet">
 
-				.footerRow {
-					padding-top: 20px;
-					padding-bottom: 20px;
-				}
-		</style>
+	<link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
+
+	<style type="text/css">
+		.bs-example {
+			font-family: sans-serif;
+			position: relative;
+			margin: 50px 5px;
+		}
+		
+		.typeahead,
+		.tt-query,
+		.tt-hint {
+			border: 2px solid #CCCCCC;
+			border-radius: 8px;
+			font-size: 24px;
+			height: 30px;
+			line-height: 30px;
+			outline: medium none;
+			padding: 8px 12px;
+			width: 396px;
+		}
+		
+		.typeahead {
+			background-color: #FFFFFF;
+		}
+		
+		.typeahead:focus {
+			border: 2px solid #0097CF;
+		}
+		
+		.tt-query {
+			background-color: transparent;
+		}
+		
+		.tt-hint {
+			color: black;
+		}
+		
+		.tt-menu {
+			background-color: #FFFFFF;
+			border: 1px solid rgba(0, 0, 0, 0.2);
+			border-radius: 8px;
+			box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+			margin-top: 12px;
+			padding: 8px 0;
+			width: 396px;
+			height: 150px;
+			overflow: scroll;
+		}
+		
+		.tt-suggestion {
+			font-size: 24px;
+			line-height: 24px;
+			padding: 3px 20px;
+			color: black;
+		}
+		
+		.tt-suggestion:hover {
+			background-color: #0097CF;
+			color: black;
+		}
+		
+		.tt-suggestion p {
+			margin: 0;
+		}
+		
+		#siteLogo {
+			margin: 0;
+			padding: 0;
+			width: 12%;
+			height: auto;
+		}
+		
+		#siteNameLogo {
+			font-family: 'Lobster', cursive;
+			font-size: 30px;
+			text-transform: none;
+			padding-top: 0px;
+		}
+		
+		.socialMedia {
+			width: 40px;
+			height: 40px;
+			margin: 5px;
+		}
+		
+		.footerRow {
+			padding-top: 20px;
+			padding-bottom: 20px;
+		}
+	</style>
 </head>
+
 <body>
 
-		<nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
-				<div class="container-fluid">   <!-- navbar container-fluid -->
-						<!-- Brand and toggle get grouped for better mobile display -->
-						<div class="navbar-header">
-								<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+	<nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
+		<div class="container-fluid">
+			<!-- navbar container-fluid -->
+			<!-- Brand and toggle get grouped for better mobile display -->
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
 										<span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
 								</button>
-								<a class="navbar-brand page-scroll" id="siteNameLogo" href="#page-top"><span><img id="siteLogo" src="/assets/img/logo.png"> fanSTATStic</span></a>
-						</div>
+				<a class="navbar-brand page-scroll" id="siteNameLogo" href="#page-top"><span><img id="siteLogo" src="/assets/img/logo.png"> fanSTATStic</span></a>
+			</div>
 
-						<!-- Collect the nav links, forms, and other content for toggling -->
-						<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1"> <!-- navbar-collapse -->
-								<ul class="nav navbar-nav navbar-right">
-										<li>
-												<a class="page-scroll" href="#about">Back to Home Page</a>
-										</li>
-										<li>
-												<a class="page-scroll" href="/logout">Logout</a>
-										</li>
-								</ul>
-						</div> <!-- closing navbar-collapse -->
-				</div> <!-- closing navbar container-fluid -->
-		</nav> <!-- closing navbar -->
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				<!-- navbar-collapse -->
+				<ul class="nav navbar-nav navbar-right">
+					<li>
+						<a class="page-scroll" href="#about">Back to Home Page</a>
+					</li>
+					<li>
+						<a class="page-scroll" href="/logout">Logout</a>
+					</li>
+				</ul>
+			</div>
+			<!-- closing navbar-collapse -->
+		</div>
+		<!-- closing navbar container-fluid -->
+	</nav>
+	<!-- closing navbar -->
 
-		<header>
-				<div class="header-content">
-						<div class="container-fluid">
-								<h1 id="homeHeading">Select Players</h1>
-								<h3 id="homeHeading">Then Press Compare Players to See Results</h3>
-								<div class="row">
+	<header>
+		<div class="header-content">
+			<div class="container-fluid">
+				<h1 id="homeHeading">Select Players</h1>
+				<h3 id="homeHeading">Then Press Compare Players to See Results</h3>
+				<div class="row">
 
-											<div class="container">
-												<form action="/displayComparison" method="post" name="playerSearch" enctype="application/x-www-form-urlencoded">
-													<div class="bs-example" id="player-input-container" style="margin: auto">
-														<input type="hidden" name="playerID" data-player="" id="playerID" value="" />
-														<input type="text" name="typeahead" class="typeahead tt-query" autocomplete="off" spellcheck="false" placeholder="Type your Query" id="players-typeahead">
-														<button type="button" class="btn btn-default" name="add-player" id="add-player"></span style="color:black">Add player</span></button>
-													</div>
-												</form>
-											</div>
+					<div class="container">
+						<form action="/displayComparison" method="post" name="playerSearch" enctype="application/x-www-form-urlencoded">
+							<div class="bs-example" id="player-input-container" style="margin: auto">
+								<input type="hidden" name="playerID" data-player="" id="playerID" value="" />
+								<input type="text" name="typeahead" class="typeahead tt-query" autocomplete="off" spellcheck="false" placeholder="Type your Query"
+								 id="players-typeahead">
+								<button type="button" class="btn btn-default" name="add-player" id="add-player"></span style="color:black">Add player</span></button>
+							</div>
+						</form>
+					</div>
 
-								</div>
-								<div class="row text-center" style="padding-top: 30px" id="playerIdContainer" style="display: none">
-									<div class="player-list">
-						        		<ul id="players">
-						        		</ul>
-						        		<button type="button" name="compare-players" class="btn btn-primary btn-xl" id="compare-players">Compare Players</button>
-						    		</div>
-								</div>
-						</div>
 				</div>
-		</header>
+				<div class="row text-center" style="padding-top: 30px" id="playerIdContainer" style="display: none">
+					<div class="player-list">
+						<ul id="players">
+						</ul>
+						<button type="button" name="compare-players" class="btn btn-primary btn-xl" id="compare-players">Compare Players</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</header>
 
-		<div class="container-fluid bg-dark footerRow" id="contact"> <!-- footer row -->
-				<div class="row"> <!-- footer row -->
-						<div class="col-sm-12 col-md-3  col-md-offset-1 col-lg-3 col-lg-offset-1"> <!-- footer col 1 -->
-								<h2 class="section-heading text-center">COMPANY</h2>
-								<hr class="primary">
-								<h4 class="text-center"><a href="About.html">ABOUT US</a></h4>
-								<h4 class="text-center"><a href="FAQs.html">FAQs</a></h4>
-								<h4 class="text-center"><a href="intlship.html">TOOLS</a></h4>
-								<h4 class="text-center"><a href="refund.html">REFUND POLICY</a></h4>
-								<h4 class="text-center"><a href="contact.html">TERMS OF SERVICE</a></h4>
-						</div> <!-- closing footer col 1 -->
+	<div class="container-fluid bg-dark footerRow" id="contact">
+		<!-- footer row -->
+		<div class="row">
+			<!-- footer row -->
+			<div class="col-sm-12 col-md-3  col-md-offset-1 col-lg-3 col-lg-offset-1">
+				<!-- footer col 1 -->
+				<h2 class="section-heading text-center">COMPANY</h2>
+				<hr class="primary">
+				<h4 class="text-center"><a href="About.html">ABOUT US</a></h4>
+				<h4 class="text-center"><a href="FAQs.html">FAQs</a></h4>
+				<h4 class="text-center"><a href="intlship.html">TOOLS</a></h4>
+				<h4 class="text-center"><a href="refund.html">REFUND POLICY</a></h4>
+				<h4 class="text-center"><a href="contact.html">TERMS OF SERVICE</a></h4>
+			</div>
+			<!-- closing footer col 1 -->
 
-						<div class="col-sm-12 col-md-3 col-md-offset-1 col-lg-3 col-lg-offset-1"> <!-- footer col 2 -->
-								<div class="row">
-										<h2 class="section-heading text-center">COMMUNITY</h2>
-										<hr class="primary">
-										<h4 class="text-center"><a href="Blog.html">BLOG</a></h4>
-										<h4 class="text-center"><a href="FB.html">FACEBOOK</a></h4>
-										<h4 class="text-center"><a href="TW.html">TWITTER</a></h4>
-										<h4 class="text-center"><a href="YT.html">YOUTUBE</a></h4>
-										<h4 class="text-center"><a href="IG.html">INSTAGRAM</a></h4>
-								</div>
-						</div> <!-- footer close 2-->
+			<div class="col-sm-12 col-md-3 col-md-offset-1 col-lg-3 col-lg-offset-1">
+				<!-- footer col 2 -->
+				<div class="row">
+					<h2 class="section-heading text-center">COMMUNITY</h2>
+					<hr class="primary">
+					<h4 class="text-center"><a href="Blog.html">BLOG</a></h4>
+					<h4 class="text-center"><a href="FB.html">FACEBOOK</a></h4>
+					<h4 class="text-center"><a href="TW.html">TWITTER</a></h4>
+					<h4 class="text-center"><a href="YT.html">YOUTUBE</a></h4>
+					<h4 class="text-center"><a href="IG.html">INSTAGRAM</a></h4>
+				</div>
+			</div>
+			<!-- footer close 2-->
 
-						<div class="col-sm-12 col-md-3 col-md-offset-1 col-lg-3 col-lg-offset-1"> <!-- footer col 3 -->
-								<div class="row">
-										<h2 class="section-heading text-center">RESOURCES</h2>
-										<hr class="primary">
-										<h4 class="text-center"><a href="Resources.html">BROCHURE</a></h4>
-										<h4 class="text-center"><a href="Press.html">PRESS</a></h4>
-										<h4 class="text-center"><a href="HistData.html">HISTORICAL DATA</a></h4>
-										<BR>
-										<p class="text-center"><a id="siteNameLogo" href="#page-top"><span><img id="siteLogo" src="/assets/img/logo.png"> fanSTATStic</span></a></p>
-
-
-								</div>
-						</div> <!-- footer close 3-->
-
-				</div> <!-- closing footer row -->
-				<div class="row"> <!-- footer row -->
-
-		<!-- jQuery -->
-		<script src="/assets/vendor/jquery/jquery.min.js"></script>
-
-		<!-- Bootstrap Core JavaScript -->
-		<script src="/assets/vendor/bootstrap/js/bootstrap.min.js"></script>
-
-		<!-- Plugin JavaScript -->
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
-		<script src="/assets/vendor/scrollreveal/scrollreveal.min.js"></script>
-		<script src="/assets/vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
-		<script  type="text/javascript" src="/assets/js/typeahead.bundle.min.js"></script>
-		<!-- Theme JavaScript -->
-		<script src="/assets/js/creative.min.js"></script>
-
-    <script type="text/javascript">
+			<div class="col-sm-12 col-md-3 col-md-offset-1 col-lg-3 col-lg-offset-1">
+				<!-- footer col 3 -->
+				<div class="row">
+					<h2 class="section-heading text-center">RESOURCES</h2>
+					<hr class="primary">
+					<h4 class="text-center"><a href="Resources.html">BROCHURE</a></h4>
+					<h4 class="text-center"><a href="Press.html">PRESS</a></h4>
+					<h4 class="text-center"><a href="HistData.html">HISTORICAL DATA</a></h4>
+					<BR>
+					<p class="text-center"><a id="siteNameLogo" href="#page-top"><span><img id="siteLogo" src="/assets/img/logo.png"> fanSTATStic</span></a></p>
 
 
-        $(document).ready(function(){
-            var playerBloodhound = new Bloodhound({
-                datumTokenizer: Bloodhound.tokenizers.whitespace,
-                queryTokenizer: Bloodhound.tokenizers.whitespace,
-                prefetch: {url: 'https://secret-everglades-38178.herokuapp.com/search'},
-                remote: {url: 'https://secret-everglades-38178.herokuapp.com/search?key=%QUERY', wildcard: '%QUERY'},
-            }); // close player bloodhound
+				</div>
+			</div>
+			<!-- footer close 3-->
 
-            $('#players-typeahead').typeahead(
-                {minLength:1, highlight: true },
-                {
-                    name: 'players',
-                    display: 'player',
-                    source: playerBloodhound,
-                    limit: 40,
-                    templates: {
-                        notFound: function(data){
-                            return '<div style="color:#FF0000">No matches exist for ' + data.query + '. <br /> Please try a different query.</div>';
-                        },
-                        pending: function(data){
-                            return '<div style="color:#FF0000">Start typing to see choices</div>';
-                        },
-                        footer: function(data){
-                            return '<div style="color:#FF0000">Type to filter or see more choices...</div>';
-                        },
-                        suggestion: function(data){
-							console.log("Data");
-							console.log(data);
-                            return '<div>' + data.first_name + ' ' + data.last_name + ' ' + data.Player_team[0].Team.team_abbr + ' '  + data.player_position + '</div>';
-                        }
-                    }
-            }); //close typeahead initialization
+		</div>
+		<!-- closing footer row -->
+		<div class="row">
+			<!-- footer row -->
 
-            $('#players-typeahead').bind('typeahead:select', function(ev, suggestion){
-                // This is where you will do stuff with it after an option has been selected
-                console.log("TRIGGER THE SELECTION EVENT");
-                console.log(suggestion);
-                $('#playerID').val(suggestion.id);
-                var displayName = suggestion.first_name + ' ' + suggestion.last_name + ' ' + suggestion.Player_team[0].Team.team_abbr + ' ' + suggestion.player_position;
-                $('#playerID').data('player', displayName);
-                $('.typeahead').typeahead('val', displayName);
-            }); //Close typeahead bind on select
+			<!-- jQuery -->
+			<script src="/assets/vendor/jquery/jquery.min.js"></script>
 
-            $('#add-player').on('click keypress', function(){
-                console.log($('#playerID').val());
-                if(typeof $('#playerID').val() === undefined || $('#playerID').val() === '' || $('#playerID').val() === 0){
-                    $('#player-typeahead').addClass('danger');
-                    $('.text-danger').remove();
-                    $('#player-input-container').append('<span class="text-danger" id="error">Please select a player from the list</span>');
-                }else{
-                    $('span #error').remove();
-                    $('#player-typeahead').removeClass('danger');
+			<!-- Bootstrap Core JavaScript -->
+			<script src="/assets/vendor/bootstrap/js/bootstrap.min.js"></script>
 
-                    $('.text-danger').remove();
-					var li = $('<li>').data('id', $('#playerID').val()).text($('#playerID').data('player'));
-					/*console.log($('#playerID').val());
-					console.log($('#playerID').data('player'));
-					console.log($('.typeahead').typeahead('val'));*/
-					$('#playerIdContainer').show();
-                    $('#players').append(li);
-                    $('#playerID').val('');
-                    $('.typeahead').typeahead('val', '');
-                }
+			<!-- Plugin JavaScript -->
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+			<script src="/assets/vendor/scrollreveal/scrollreveal.min.js"></script>
+			<script src="/assets/vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
+			<script type="text/javascript" src="/assets/js/typeahead.bundle.min.js"></script>
+			<!-- Theme JavaScript -->
+			<script src="/assets/js/creative.min.js"></script>
 
-            }); // Close add player click keypress event
+			<script type="text/javascript">
+				$(document).ready(function () {
+					var playerBloodhound = new Bloodhound({
+						datumTokenizer: Bloodhound.tokenizers.whitespace,
+						queryTokenizer: Bloodhound.tokenizers.whitespace,
+						prefetch: { url: 'https://secret-everglades-38178.herokuapp.com/search' },
+						remote: { url: 'https://secret-everglades-38178.herokuapp.com/search?key=%QUERY', wildcard: '%QUERY' },
+					}); // close player bloodhound
 
-            $('#compare-players').on('click keypress', function() {
-				event.preventDefault();
-	            // get all the data of the list elements
-	            var ids = [];
-	            $('ul li').each(function(){
-	            	console.log($(this).data('id'));
-					if(typeof $(this).data('id') !== "undefined" && $(this).data('id') !== ''){
-						 ids.push( $(this).data('id') );
-					}
+					$('#players-typeahead').typeahead(
+						{ minLength: 1, highlight: true },
+						{
+							name: 'players',
+							display: 'player',
+							source: playerBloodhound,
+							limit: 40,
+							templates: {
+								notFound: function (data) {
+									return '<div style="color:#FF0000">No matches exist for ' + data.query + '. <br /> Please try a different query.</div>';
+								},
+								pending: function (data) {
+									return '<div style="color:#FF0000">Start typing to see choices</div>';
+								},
+								footer: function (data) {
+									return '<div style="color:#FF0000">Type to filter or see more choices...</div>';
+								},
+								suggestion: function (data) {
+									return '<div>' + data.first_name + ' ' + data.last_name + ' ' + data.Player_team[0].Team.team_abbr + ' ' + data.player_position + '</div>';
+								}
+							}
+						}); //close typeahead initialization
 
-	            });
-	            console.log();
-	            console.log(ids);
+					$('#players-typeahead').bind('typeahead:select', function (ev, suggestion) {
+						// This is where you will do stuff with it after an option has been selected
+						$('#playerID').val(suggestion.id);
+						var displayName = suggestion.first_name + ' ' + suggestion.last_name + ' ' + suggestion.Player_team[0].Team.team_abbr + ' ' + suggestion.player_position;
+						$('#playerID').data('player', displayName);
+						$('.typeahead').typeahead('val', displayName);
+					}); //Close typeahead bind on select
 
-				var playerIds = {
-					ids: ids
-				};
-				$('#playerID').val(ids.join(","));
+					$('#add-player').on('click keypress', function () {
+						if (typeof $('#playerID').val() === undefined || $('#playerID').val() === '' || $('#playerID').val() === 0) {
+							$('#player-typeahead').addClass('danger');
+							$('.text-danger').remove();
+							$('#player-input-container').append('<span class="text-danger" id="error">Please select a player from the list</span>');
+						} else {
+							$('span #error').remove();
+							$('#player-typeahead').removeClass('danger');
 
-				//var currentURL = window.location.origin;
-				//$.post('/displayComparison', playerIds);
-				$('form[name="playerSearch"]').submit();
-            });
+							$('.text-danger').remove();
+							var li = $('<li>').data('id', $('#playerID').val()).text($('#playerID').data('player'));
+							$('#playerIdContainer').show();
+							$('#players').append(li);
+							$('#playerID').val('');
+							$('.typeahead').typeahead('val', '');
+						}
+
+					}); // Close add player click keypress event
+
+					$('#compare-players').on('click keypress', function () {
+						event.preventDefault();
+						// get all the data of the list elements
+						var ids = [];
+						$('ul li').each(function () {
+							if (typeof $(this).data('id') !== "undefined" && $(this).data('id') !== '') {
+								ids.push($(this).data('id'));
+							}
+
+						});
+						var playerIds = {
+							ids: ids
+						};
+						$('#playerID').val(ids.join(","));
+
+						$('form[name="playerSearch"]').submit();
+					});
 
 
-    }); //Close document.ready
-    </script>
+				}); //Close document.ready
+			</script>
 </body>
+
 </html>
