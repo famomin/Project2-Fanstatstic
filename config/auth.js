@@ -1,13 +1,13 @@
 module.exports = {
-	'facebookAuth' : {
+	'facebookAuth': {
 		'clientID': '',
-        'clientSecret': '',
+		'clientSecret': '',
 		'callbackURL': 'https://secret-everglades-38178.herokuapp.com/login/facebook/return'
 	},
 
-	'googleAuth' : {
+	'googleAuth': {
 		'clientID': '',
-        'clientSecret': '',
- 		'callbackURL': 'https://secret-everglades-38178.herokuapp.com/auth/google/callback'
+		'clientSecret': '',
+		'callbackURL': 'https://secret-everglades-38178.herokuapp.com/auth/google/callback'
 	}
 }
